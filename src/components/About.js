@@ -8,7 +8,7 @@ const About = () => {
       <main>
         <div className="container">
           <section className="row">
-            <div className="col-xs-12 col-md-12 m-3">
+            <div className="col-xs-12 col-md-12 mt-5">
               <h1>About us</h1>
             </div>
             <div className="content col-xs-5 col-md-6 m-4">

@@ -27,7 +27,7 @@ body {
 nav {
   background-color: #E6EDF0;
 }
-h1{
+h1, h2{
     color: white;
 }
 p{
@@ -35,4 +35,28 @@ p{
 }
 .aboutUs-image{
     width: 500px;
+}
+.graph-image{
+    width: 400px;
+}
+.intro{
+    font-size: 32px;
+}
+.try-out-button{
+    width: 120px;
+    height: 40px;
+    background-color: #FFEBEB;
+    color: green;
+    border: none;
+    border-radius: 8px;
+    
+}
+.calendar-image{
+    width: 400px;
+
+}
+
+.last-message{
+    text-align: center;
+    font-size: 24px;
 }

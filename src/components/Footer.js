@@ -4,8 +4,8 @@ function Footer() {
     return (
         <div className="container">
         <section className="row">
-          <div className="col-xs-12 col-md-12 m-3">
-            <p>copyright</p>
+          <div className="col-xs-12 col-md-12 mt-4 d-flex justify-content-center">
+            <p>sleep&see copyright</p>
           </div>
         </section>
       </div>
