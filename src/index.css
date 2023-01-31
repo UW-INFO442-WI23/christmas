@@ -42,7 +42,7 @@ p{
 .intro{
     font-size: 32px;
 }
-.try-out-button{
+.link-button{
     width: 120px;
     height: 40px;
     background-color: #FFEBEB;
@@ -53,10 +53,11 @@ p{
 }
 .calendar-image{
     width: 400px;
-
 }
-
 .last-message{
     text-align: center;
     font-size: 24px;
+}
+.sleep-image{
+    width: 400px;
 }

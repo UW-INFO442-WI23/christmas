@@ -14,7 +14,7 @@ function Home() {
                         <div className="content col-xs-7 col-md-7 m-4">
                             <p className='intro'><span>A site made to record </span><br></br><span>and visualize your sleep</span></p>
                             <a href="/login">
-                                <button className="try-out-button">Try it out</button>
+                                <button className="link-button">Try it out</button>
                             </a>
                         </div>
                         <div>
@@ -27,7 +27,7 @@ function Home() {
                             <h1>Sleep quality is important</h1>
                             <p className='intro mt-5'>see different graphs and sleep cycles across your week or month on when you hit the hay</p>
                             <a href="/login">
-                                <button className="try-out-button">Try it out</button>
+                                <button className="link-button">Try it out</button>
                             </a>
                         </div>
                         <div className='mt-5'>
