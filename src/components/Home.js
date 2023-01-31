@@ -35,10 +35,10 @@ function Home() {
                                 <h2>Be a dreamer</h2>
                             </div>
                             <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
-                                <p className='last-message'>research says that 35% of students stay up past 3 AM at least once a week which affects long-term focus, cognitive ability, and health </p>
+                                <p className='last-message'>Research says that 35% of students stay up past 3 AM at least once a week which affects long-term focus, cognitive ability, and health </p>
                             </div>
                             <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
-                                <p className='last-message'>we aim to inform students on the importance of good sleep health and habits to better academic performance and quality of life overall</p>
+                                <p className='last-message'>We aim to inform students on the importance of good sleep health and habits to better academic performance and quality of life overall</p>
                             </div>
                         </div>        
                     </section>
