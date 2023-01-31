@@ -22,7 +22,7 @@ function Faster() {
                                 <a href="https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast">
                                     <p>How to Fall Asleep Fast</p>
                                 </a>
-                                <a href="https://health.clevelandclinic.org/how-to-fall-asleep-fast/s">
+                                <a href="https://health.clevelandclinic.org/how-to-fall-asleep-fast/">
                                     <p>Here’s how to start snoozing more quickly at night</p>
                                 </a>
                             </div>
