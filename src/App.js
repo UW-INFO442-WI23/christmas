@@ -6,6 +6,9 @@ import Navbar from './components/Navbar';
 import Resources from './components/Resources';
 import About from './components/About';
 import Login from './components/Login';
+import Healthier from './components/Healthier';
+import Faster from './components/Faster';
+import Better from './components/Better';
 
 function App() {
   // Stores user log in information, friends and enables more fucntionality.
@@ -44,6 +47,9 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/resources' element={<Resources />} />
+                    <Route path='/healthier' element={<Healthier />} />
+                    <Route path='/faster' element={<Faster />} />
+                    <Route path='/better' element={<Better />} />
 					<Route path='/login' element={<Login />} />
 				</Routes>
 			</div>

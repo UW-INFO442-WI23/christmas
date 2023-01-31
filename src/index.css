@@ -65,3 +65,10 @@ p{
     width: 400px;
     border-radius: 8px;
 }
+
+/* individual resources page */
+.back_arrow {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 2rem;
+}

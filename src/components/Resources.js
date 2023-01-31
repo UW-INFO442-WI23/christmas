@@ -18,7 +18,7 @@ function Resources() {
                         <div className="col-xs-4 col-md-6 mt-5">
                             <h2>Sleep Healtheir</h2>
                             <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379">
+                            <a href="/healthier">
                                 <button className="link-button">Check</button>
                             </a>
                         </div>
@@ -28,7 +28,7 @@ function Resources() {
                         <div className="col-xs-4 col-md-6 mt-5">
                             <h2>Sleep Faster</h2>
                             <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <a href="https://www.healthline.com/nutrition/ways-to-fall-asleep">
+                            <a href="/faster">
                                 <button className="link-button">Check</button>
                             </a>
                         </div>
@@ -38,7 +38,7 @@ function Resources() {
                         <div className="col-xs-4 col-md-6 mt-5">
                             <h2>Sleep Better</h2>
                             <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <a href="https://www.mdanderson.org/publications/focused-on-health/healthy-sleep-habits.h13-1589046.html">
+                            <a href="/better">
                                 <button className="link-button">Check</button>
                             </a>
                         </div>
