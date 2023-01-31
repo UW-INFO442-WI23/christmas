@@ -33,15 +33,6 @@ h1, h2{
 p{
     color: white;
 }
-.aboutUs-image{
-    width: 500px;
-}
-.graph-image{
-    width: 400px;
-}
-.intro{
-    font-size: 32px;
-}
 .link-button{
     width: 120px;
     height: 40px;
@@ -51,6 +42,17 @@ p{
     border-radius: 8px;
     
 }
+/*about us page*/
+.aboutUs-image{
+    width: 500px;
+}
+/* home page */
+.graph-image{
+    width: 400px;
+}
+.intro{
+    font-size: 32px;
+}
 .calendar-image{
     width: 400px;
 }
@@ -58,6 +60,8 @@ p{
     text-align: center;
     font-size: 24px;
 }
+/* resources page */
 .sleep-image{
     width: 400px;
+    border-radius: 8px;
 }
