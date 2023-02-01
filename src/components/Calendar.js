@@ -126,15 +126,30 @@ export function DayCard(props){
     if (dayInfo.date === '') {
         return <div className='col'></div>
     }
-    let highlightToday = '';
+    let highlightToday = 'btn';
     if (dayInfo.date === grabPresentDate().thisDate.getDate() &&
         dayInfo.month === grabPresentDate().thisMonthNumber) {
-        highlightToday = 'border border-primary';
+        highlightToday = 'btn border border-primary';
     }
+
+    const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const dayofWeekDisplay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    console.log(dayInfo)
     return (
         <div className='col'>
-            <div className={highlightToday}>
+            <a className={highlightToday} data-bs-toggle="offcanvas" href={'#date-' + dayInfo.date + '-' + dayInfo.month} role="button" aria-controls="offcanvasExample">
                 {dayInfo.date}
+            </a>
+
+            <div className="offcanvas offcanvas-end" tabindex="-1" id={'date-' + dayInfo.date + '-' + dayInfo.month} aria-labelledby="offcanvasRightLabel">
+            <div className="offcanvas-header">
+                <h5 className="offcanvas-title" id="offcanvasRightLabel">{monthDisplayText[dayInfo.month - 1] + ' ' + dayInfo.date + ', ' + dayofWeekDisplay[dayInfo.dayofWeek]}</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div className="offcanvas-body">
+                {'#date-' + dayInfo.date + '-' + dayInfo.month}
+            </div>
             </div>
         </div>
     );
