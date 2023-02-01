@@ -42,20 +42,20 @@ function App() {
 
   return (
     <div className='page-container'>
-		<Navbar />
-		<div className='fill-content'>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/about' element={<About />} />
-					<Route path='/resources' element={<Resources />} />
-                    <Route path='/healthier' element={<Healthier />} />
-                    <Route path='/faster' element={<Faster />} />
-                    <Route path='/better' element={<Better />} />
-					<Route path='/login' element={<Login />} />
-          <Route path='/calendar' element={<Calendar />} />
-				</Routes>
+        <Navbar />
+        <div className='fill-content'>
+            <Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/about' element={<About />} />
+				<Route path='/resources' element={<Resources />} />
+					<Route path='/healthier' element={<Healthier />} />
+					<Route path='/faster' element={<Faster />} />
+					<Route path='/better' element={<Better />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/calendar' element={<Calendar />} />
+			</Routes>
 			</div>
-    </div>
+	</div>
   );
 }
 

@@ -4,19 +4,19 @@ import logo from "../img/logo.png"
 function Navbar() {
     return (
         <nav className='navbar navbar-expand-lg justify-content-between'>
-            <NavLink className="navbar-brand brand font-weight-bold" to="/" aria-label="Logo and Home Button">
+            <NavLink className="navbar-brand brand font-weight-bold ms-3" to="/" aria-label="Logo and Home Button">
                 <img className="logo_pic" src={logo} alt='logo'></img>
             </NavLink>
         
             <div className="form-inline" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto ml-auto">
-                    <li className='nav-item mr-5'>
+                <ul className="navbar-nav me-auto ms-auto">
+                    <li className='nav-item me-5'>
                         <NavLink className='text-purple' to='/about'>about</NavLink>
                     </li>
-                    <li className='nav-item mr-5'>
+                    <li className='nav-item me-5'>
                         <NavLink className='text-purple' to='/resources'>resources</NavLink>
                     </li>
-                    <li className='nav-item mr-5'>
+                    <li className='nav-item me-5'>
                         <NavLink className='text-purple' to='/login'>login</NavLink>
                     </li>
                 </ul>

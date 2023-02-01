@@ -7,17 +7,15 @@ function Home() {
         <>
             <main>
                 <div className="container">
-                    <section className="row">
-                        <div className="col-xs-12 col-md-12 mt-5">
+                    <section className="row align-items-center">
+                        <div className="content col-xs-6 col-md-5 m-4 mt-5">
                             <h1>Welcome to sleep&see</h1>
-                        </div>
-                        <div className="content col-xs-7 col-md-7 m-4">
                             <p className='intro'><span>A site made to record </span><br></br><span>and visualize your sleep</span></p>
                             <a href="/login">
                                 <button className="link-button">Try it out</button>
                             </a>
                         </div>
-                        <div>
+                        <div className="content col-xs-6 col-md-5 m-4">
                             <img className="graph-image" src={graph_image} alt='graph'></img>
                         </div>
                         <div className="col-xs-4 col-md-8 mt-8">
