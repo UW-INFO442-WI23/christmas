@@ -1,0 +1,40 @@
+[
+    {
+        "month": "Feb",
+        "weeks": [
+            {
+                "week": 1,
+                "weekday": [
+                    {
+                        "Weekday": "Sunday",
+                        "Notes": ""
+                    },
+                    {
+                        "Weekday": "Monday",
+                        "Notes": ""
+                    },
+                    {
+                        "Weekday": "Tuesday",
+                        "Notes": ""
+                    },
+                    {
+                        "Weekday": "Wednesday",
+                        "Notes": ""
+                    },
+                    {
+                        "Weekday": "Thursday",
+                        "Notes": ""
+                    },
+                    {
+                        "Weekday": "Friday",
+                        "Notes": ""
+                    },
+                    {
+                        "Weekday": "Saturday",
+                        "Notes": ""
+                    }
+                ]
+            }
+        ]
+    }
+]

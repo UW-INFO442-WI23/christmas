@@ -4,9 +4,8 @@ import logo from "../img/logo.png"
 function Navbar() {
     return (
         <nav className='navbar navbar-expand-lg justify-content-between'>
-            <NavLink className="navbar-brand brand nav-title h1 font-weight-bold" to="/" aria-label="Logo and Home Button">
+            <NavLink className="navbar-brand brand font-weight-bold" to="/" aria-label="Logo and Home Button">
                 <img className="logo_pic" src={logo} alt='logo'></img>
-                Sleep'N'See
             </NavLink>
         
             <div className="form-inline" id="navbarSupportedContent">

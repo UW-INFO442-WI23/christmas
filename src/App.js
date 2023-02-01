@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Healthier from './components/Healthier';
 import Faster from './components/Faster';
 import Better from './components/Better';
+import Calendar from './components/Calendar';
 
 function App() {
   // Stores user log in information, friends and enables more fucntionality.
@@ -51,6 +52,7 @@ function App() {
                     <Route path='/faster' element={<Faster />} />
                     <Route path='/better' element={<Better />} />
 					<Route path='/login' element={<Login />} />
+          <Route path='/calendar' element={<Calendar />} />
 				</Routes>
 			</div>
     </div>
