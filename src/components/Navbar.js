@@ -11,13 +11,13 @@ function Navbar() {
             <div className="form-inline" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto ms-auto">
                     <li className='nav-item me-5'>
-                        <NavLink className='text-purple' to='/about'>about</NavLink>
+                        <NavLink className='nav-text fw-bolder' to='/about'>about</NavLink>
                     </li>
                     <li className='nav-item me-5'>
-                        <NavLink className='text-purple' to='/resources'>resources</NavLink>
+                        <NavLink className='nav-text fw-bolder' to='/resources'>resources</NavLink>
                     </li>
                     <li className='nav-item me-5'>
-                        <NavLink className='text-purple' to='/login'>login</NavLink>
+                        <NavLink className='nav-text fw-bolder' to='/login'>login</NavLink>
                     </li>
                 </ul>
             </div>

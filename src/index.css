@@ -2,7 +2,17 @@ body {
   margin: 0;
   font-family: 'Mulish';
   height: inherit;
-  background-color: #181616;
+  background-color:#181616;
+}
+
+.nav-text {
+  background: -webkit-linear-gradient(blue, purple);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-text:link { 
+  text-decoration: none; 
 }
 
 .main-container{
