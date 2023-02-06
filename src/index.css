@@ -4,17 +4,7 @@ body {
   box-sizing: border-box;
   font-family: 'Mulish';
   height: inherit;
-  background-color:#181616;
-}
-
-.nav-text {
-  background: -webkit-linear-gradient(blue, purple);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.nav-text:link { 
-  text-decoration: none; 
+  background-color: #181616;
 }
 .main-container{
   display: flex;
@@ -149,6 +139,9 @@ ul.nav-links li a{
 }
 .header-content{
     padding-top: 140px;
+}
+.header-calendar{
+    padding-top: 200px;
 }
 h1, h2{
     color: white;

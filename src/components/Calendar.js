@@ -24,7 +24,7 @@ function Calendar() {
 
     return (
         <div className="container text-center bg-white">
-            <div className="row">
+            <div className="row header-calendar">
                 <div className="col">
                     <button onClick={handlePreviousMonth} type="button" className="btn btn-dark">{'<'}</button>
                 </div>
