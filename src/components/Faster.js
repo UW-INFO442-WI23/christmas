@@ -7,7 +7,7 @@ function Faster() {
             <main>
                 <div className="container">
                     <section className="row">
-                        <div className="col-xs-12 col-md-12 mt-5">
+                        <div className="header-content col-xs-12 col-md-12 mt-5">
                             <h1>Sleep Faster?</h1>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
