@@ -10,11 +10,22 @@ import Healthier from './components/Healthier';
 import Faster from './components/Faster';
 import Better from './components/Better';
 import Calendar from './components/Calendar';
+import background from "./img/bg-lg.png"
 
 function App() {
   // Stores user log in information, friends and enables more fucntionality.
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
+  const styles = {
+    container: {
+        backgroundImage: `url(${background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        width: '100vw',
+        height: '100vh'
+    }
+};
   // Check if User Login
 
   // Only run it once, when refresh

@@ -32,7 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 2em;
-    background-color: rgb(26, 26, 26);
+    background-color: #000
 }
 .logo{
     text-decoration: none;
@@ -190,5 +190,33 @@ p{
 }
 .content-footer{
     margin-top: 40px;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
+.page-container{
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("./img/bg-xs.png");
+  }
+/* next size - tablet */
+@media (min-width: 768px) {
+    .page-container {
+      background-image: url("./img/bg-xs.png");
+    }
+  }
+  
+  /* next size - tablet landscape and it covers desktop */
+  @media (min-width: 1024px) {
+    .miracle {
+      background-image: url("./img/bg-md.png");
+    }
+  }
+  
+  /* next size - larger desktops */
+  @media (min-width: 1280px) {
+    .page-container {
+      background-image: url("./img/bg-lg.png");
+    }
+  }
+  
