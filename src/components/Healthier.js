@@ -6,8 +6,8 @@ function Healtheir() {
         <>
             <main>
                 <div className="container">
-                    <section className="row">
-                        <div className="header-content col-xs-12 col-md-12 mt-5">
+                    <section className="row header-content">
+                        <div className="col-xs-12 col-md-12 mt-5">
                             <h1>Sleep Healthier?</h1>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
