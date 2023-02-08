@@ -10,35 +10,26 @@ import Healthier from './components/Healthier';
 import Faster from './components/Faster';
 import Better from './components/Better';
 import Calendar from './components/Calendar';
-import ImportData from  './data/data.json'
+import background from "./img/bg-lg.png"
 
 function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   // Stores user log in information, friends and enables more fucntionality.
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
-  
-  // Loading Data
-  const [userData, setUserData] = useState([]);
-  // const [displayData, setDisplayData] = useState([]);
+  const styles = {
+    container: {
+        backgroundImage: `url(${background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        width: '100vw',
+        height: '100vh'
+    }
+};
   // Check if User Login
 
-  // Only run it once, when refresh
-  async function fetchData() {
-    // Filter the data based on User
-    const userFilter = ImportData.find((data) => {
-      return data.user === 'testID' //Later change into given props of login.
-    })
-    try {
-      setUserData(userFilter);
-      // setDisplayData(ImportData);
-    } catch (error) {
-      setErrorMessage(error);
-    }
-  }
-
   useEffect(() => {
-    fetchData();
     const auth = getAuth();
       const unregisterAuthListener = onAuthStateChanged(auth, (firebaseUser) => {
         if(firebaseUser) {
@@ -68,7 +59,7 @@ function App() {
 			{/* Routes to each corresponding page */}
             <Routes>
 				<Route path='/' element={<Home />} />
-        <Route path='/calendar' element={<Calendar userData={userData} />} />
+        <Route path='/calendar' element={<Calendar />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/resources' element={<Resources />} />
 					<Route path='/healthier' element={<Healthier />} />

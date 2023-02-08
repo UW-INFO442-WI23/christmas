@@ -6,7 +6,7 @@ function Better() {
         <>
             <main>
                 <div className="container">
-                    <section className="row">
+                    <section className="row header-content">
                         <div className="col-xs-12 col-md-12 mt-5">
                             <h1>Sleep Better (Quality of sleep)?</h1>
                         </div>

@@ -7,7 +7,7 @@ function Home() {
         <>
             <main>
                 <div className="container">
-                    <section className="row align-items-center">
+                    <section className="row header-content align-items-center">
                         <div className="content col-xs-6 col-md-5 m-4 mt-5">
                             <h1>Welcome to sleep&see</h1>
                             <p className='intro'><span>A site made to record </span><br></br><span>and visualize your sleep</span></p>

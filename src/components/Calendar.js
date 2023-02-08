@@ -6,8 +6,6 @@ function Calendar(props) {
     const [givenData, setGivenData] = useState(ImportData);
     const days = daysInMonth(calendarMonth, grabPresentDate().thisYearNumber);
     const monthDetails = datesDayMonth(days, calendarMonth);
-
-    const postData = props.userData; //References to Main
     
     const userMonth = givenData.find((data) => {
         return data.user === 'testID'
@@ -44,7 +42,7 @@ function Calendar(props) {
 
     return (
         <div className="container text-center bg-white">
-            <div className="row">
+            <div className="row header-calendar">
                 <div className="col">
                     <button onClick={handlePreviousMonth} type="button" className="btn btn-dark">{'<'}</button>
                 </div>
