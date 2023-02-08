@@ -4,6 +4,7 @@ import {getAuth, signOut} from 'firebase/auth';
 import {useNavigate} from 'react-router-dom';
 
 export function LogOut() {
+  console.log('here')
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -14,8 +15,12 @@ export function LogOut() {
   };
 
   return (
-    <div className='logout'>
-      <button onClick={signout}>Logout</button>
+    <div className="container">
+        <section className="row header-content align-items-center">
+            <div className='logout'>
+                <button onClick={signout}>Logout</button>
+            </div>
+        </section>
     </div>
   );
 }

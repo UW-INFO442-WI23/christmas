@@ -11,6 +11,7 @@ import Faster from './components/Faster';
 import Better from './components/Better';
 import Calendar from './components/Calendar';
 import background from "./img/bg-lg.png"
+import { LogOut } from './components/Logout';
 
 function App() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -33,9 +34,9 @@ function App() {
     const auth = getAuth();
       const unregisterAuthListener = onAuthStateChanged(auth, (firebaseUser) => {
         if(firebaseUser) {
-            console.log("loggin in", firebaseUser.displayName);
             setUser(firebaseUser);
             setLoggedIn(true);
+            console.log("loggin in", firebaseUser, loggedIn);
         } else {
             console.log("logging out");
             setUser({});
@@ -65,7 +66,8 @@ function App() {
 					<Route path='/healthier' element={<Healthier />} />
 					<Route path='/faster' element={<Faster />} />
 					<Route path='/better' element={<Better />} />
-				<Route path='/login' element={<Login />} />
+				<Route path='/login' element={<Login loggedIn={loggedIn}/>} />
+        <Route path='/logout' element={<LogOut />} />
 			</Routes>
 			</div>
 	</div>
