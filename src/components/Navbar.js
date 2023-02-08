@@ -7,8 +7,7 @@ function Navbar() {
     const [navOpen, setNavOpen] = useState(false)
 
     return (
-        <div className="nav">
-            <div className="nav-container">
+        <nav className='navbar'>
                 <div className="navbar">
                     <NavLink className="navbar-brand brand font-weight-bold ms-3" to="/" aria-label="Logo and Home Button">
                         <img className="logo_pic" src={logo} alt='logo'></img>
@@ -56,8 +55,7 @@ function Navbar() {
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
+        </nav>
     //     <nav className='navbar navbar-expand-lg justify-content-between'>
     //         <NavLink className="navbar-brand brand font-weight-bold ms-3" to="/" aria-label="Logo and Home Button">
     //             <img className="logo_pic" src={logo} alt='logo'></img>

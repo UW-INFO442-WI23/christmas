@@ -22,7 +22,13 @@ function Login(props) {
     if(props.loggedIn) {
         return redirect("/");
     } else {
-        return <StyledFireBaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth}/>;
+        return (
+            <div className="container">
+                <section className="row header-content align-items-center">
+                    <StyledFireBaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth}/>
+                </section>
+            </div>
+        );
     }
     
 }

@@ -52,12 +52,12 @@ function App() {
 
   return (
 	// Main div that contains all the pages.
-    <div className='page-container'>
+    <div className='page-container '>
+      <div className='fill-content'>
         {/* Nav Bar */}
 		    <Navbar />
-        <div className='fill-content'>
 			{/* Routes to each corresponding page */}
-            <Routes>
+        <Routes>
 				<Route path='/' element={<Home />} />
         <Route path='/calendar' element={<Calendar />} />
 				<Route path='/about' element={<About />} />
