@@ -225,4 +225,13 @@ p{
       background-image: url("./img/bg-lg.png");
     }
   }
-  
+  .login-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .login-image{
+    height: 500px;
+    width: 500px;
+  }
