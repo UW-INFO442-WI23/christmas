@@ -11,6 +11,9 @@ function Navbar() {
             <div className="form-inline" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto ms-auto">
                     <li className='nav-item me-5'>
+                        <NavLink className='nav-text fw-bolder' to='/calendar'>calendar</NavLink>
+                    </li>
+                    <li className='nav-item me-5'>
                         <NavLink className='nav-text fw-bolder' to='/about'>about</NavLink>
                     </li>
                     <li className='nav-item me-5'>

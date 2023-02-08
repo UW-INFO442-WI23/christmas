@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ImportData from  '../data/data.json'
 
-function Calendar() {
+function Calendar(props) {
     const [calendarMonth, setCalendarMonth] = useState(grabPresentDate().thisMonthNumber);
+    const [givenData, setGivenData] = useState(ImportData);
     const days = daysInMonth(calendarMonth, grabPresentDate().thisYearNumber);
     const monthDetails = datesDayMonth(days, calendarMonth);
+
+    const postData = props.userData; //References to Main
     
+    const userMonth = givenData.find((data) => {
+        return data.user === 'testID'
+    });
+    const monthInfo = userMonth.month.find((data) => {
+        return data.month === calendarMonth;
+    })
+
+    const addMonth = () => {
+        const newMonthData = {
+            month: calendarMonth,
+            Year: 2023,
+            date: []
+        }
+        userMonth.month.push(newMonthData);
+    }
+
     let weekCount = monthDetails[Object.keys(monthDetails).length - 1].week;
-    const handleCalenderWeek = [...Array(weekCount)].map((e, i) => <WeekCard monthData={monthDetails} weekNum={i + 1} key={i}/>)
+    const handleCalenderWeek = [...Array(weekCount)].map((e, i) => <WeekCard addMonth={addMonth} userData={monthInfo} monthData={monthDetails} weekNum={i + 1} key={i}/>)
 
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -92,7 +112,7 @@ export function WeekCard(props) {
         return data.week === props.weekNum;
     })
     checkWeekData(filterWeek);
-    const displayWeek = filterWeek.map((data) => <DayCard dayInfo={data} key={data.date + data.dayofWeek}/>)
+    const displayWeek = filterWeek.map((data) => <DayCard addMonth={props.addMonth} userData={props.userData} dayInfo={data} key={data.date + data.dayofWeek}/>)
     return (
         <div className="row">
             {displayWeek}
@@ -120,8 +140,59 @@ function checkWeekData(data) {
 }
 
 // creates the information for each date
-export function DayCard(props){ 
+export function DayCard(props) {
+    const [addNote, setAddNote] = useState('');
+    // User Wake up and Sleep UseState
+    const [storedNotes, setStoredNotes] = useState([]); // Users Notes Array UseState
     const dayInfo = props.dayInfo
+
+    useEffect(() => {
+        // checkData();
+        if(props.userData !== undefined) {
+            const userDateData = props.userData.date.find((data) => {
+                return data.DateNum ===  dayInfo.date &&
+                data.WeekdayNum === dayInfo.dayofWeek
+            })
+            if(userDateData !== undefined) {    
+                setStoredNotes(userDateData.Notes);
+            }
+        }  
+    }, [])
+
+    const handleInputNote = (event) => {
+        setAddNote(event.target.value);
+    }
+
+    const handleSubmit = () => {    
+        // 0. Check if existing month data exists
+        // 0a. If it doesn't, then make a new one
+        console.log(props.userData);
+        if(props.userData === undefined) {
+            props.addMonth();
+        }
+          
+        // 1. check if note exists for day
+        let dateNotesData = props.userData.date.find((data) => {
+            return data.DateNum === dayInfo.date &&
+            data.WeekdayNum === dayInfo.dayofWeek
+        })     
+        // 1a. if it doesn't exists, then make a new one
+        if (dateNotesData === undefined) {
+            const newDateInfo = {
+                DateNum: dayInfo.date,
+                Notes: [],
+                TimeSleep: "",
+                TimeWakeUp: "",
+                WeekdayNum: dayInfo.dayofWeek
+            }
+            props.userData.date.push(newDateInfo);
+        }
+        // 2. add notes to array
+        setStoredNotes([...storedNotes, addNote]);
+        // Clean Up
+        setAddNote('');
+    }
+
     // have blank card if date doesn't exist
     if (dayInfo.date === '') {
         return <div className='col'></div>
@@ -129,29 +200,62 @@ export function DayCard(props){
     let highlightToday = 'btn';
     if (dayInfo.date === grabPresentDate().thisDate.getDate() &&
         dayInfo.month === grabPresentDate().thisMonthNumber) {
-        highlightToday = 'btn border border-primary';
+        highlightToday = highlightToday + ' border border-primary';
+    }
+
+    // Filter to get each date
+    let dateNoteList = <></>;
+    if(props.userData !== undefined) {
+        let userDateData = props.userData.date.filter((data) => {
+            return data.DateNum === dayInfo.date &&
+            data.WeekdayNum === dayInfo.dayofWeek
+        })    
+        if(userDateData.length > 0) {
+            highlightToday = highlightToday + ' bg-secondary';
+            
+            dateNoteList = storedNotes.map((note, i) => { //Replaces this
+                return <DateNotes note={note} key={i}/>
+            })
+        }
     }
 
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const dayofWeekDisplay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    console.log(dayInfo)
     return (
         <div className='col'>
             <a className={highlightToday} data-bs-toggle="offcanvas" href={'#date-' + dayInfo.date + '-' + dayInfo.month} role="button" aria-controls="offcanvasExample">
                 {dayInfo.date}
             </a>
 
-            <div className="offcanvas offcanvas-end" tabindex="-1" id={'date-' + dayInfo.date + '-' + dayInfo.month} aria-labelledby="offcanvasRightLabel">
+            <div className="offcanvas offcanvas-end" tabIndex="-1" id={'date-' + dayInfo.date + '-' + dayInfo.month} aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasRightLabel">{monthDisplayText[dayInfo.month - 1] + ' ' + dayInfo.date + ', ' + dayofWeekDisplay[dayInfo.dayofWeek]}</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div className="offcanvas-body">
-                {'#date-' + dayInfo.date + '-' + dayInfo.month}
-            </div>
+                <div className="offcanvas-body">
+                    <ul className="list-group">
+                        {dateNoteList}
+                        <li className="list-group-item">
+                            <div className='input-group'>
+                                <input value={addNote} onChange={handleInputNote} type="text" className="form-control" placeholder="Add Notes" aria-label="text box" aria-describedby="basic-addon2" />
+                                <div className="input-group-append">
+                                    <button className="btn btn-outline-secondary" type="button" onClick={handleSubmit}>+</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+    );
+}
+
+export function DateNotes(props) {
+    return (
+        <li className="list-group-item">
+            {props.note}
+        </li>
     );
 }
 
