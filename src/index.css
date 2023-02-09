@@ -231,6 +231,11 @@ p{
     align-items: center;
     margin-bottom: 2rem;
   }
+  .login-image-sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .login-image{
     height: 500px;
     width: 500px;

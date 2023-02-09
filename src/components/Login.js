@@ -3,7 +3,7 @@ import { redirect } from 'react-router-dom';
 import StyledFireBaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import Footer from "./Footer";
-import loginImage from "../img/login-image.svg"
+import loginImage from "../img/login-image.png"
 
 
 const firebaseUIConfig = {
@@ -31,6 +31,9 @@ function Login(props) {
                     <h1 className='login-header'>Welcome to Sleep & See</h1>
                     <StyledFireBaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth}/>
                 </section>
+                <div className="content login-image-sec">
+                    <img className="login-image" src={loginImage} alt='graph'></img>
+                </div>
             </div>
             <Footer/>
             </>
