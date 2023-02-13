@@ -12,7 +12,7 @@ function Navbar() {
                     <NavLink className="navbar-brand brand font-weight-bold ms-3" to="/" aria-label="Logo and Home Button">
                         <img className="logo_pic" src={logo} alt='logo'></img>
                     </NavLink>
-                    <h1>Sleep&See</h1>
+                    <h1>sleep&see</h1>
                     <div className='menu-toggle' onClick={() => setNavOpen(!navOpen)}>
                         <div className={navOpen ? "hamBox hamBoxOpen" : "hamBox"}>
                             <span className={navOpen? "lineTop spin" : "lineTop"}></span>
