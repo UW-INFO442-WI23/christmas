@@ -22,15 +22,15 @@
                     {
                         "DateNum": 3,
                         "WeekdayNum": 5,
-                        "TimeSleep": "",
-                        "TimeWakeUp": "",
+                        "TimeSleep": "00:00",
+                        "TimeWakeUp": "10:00",
                         "Notes": ["I went to sleep early", "I believe this works"]
                     },
                     {
                         "DateNum": 4,
                         "WeekdayNum": 6,
-                        "TimeSleep": "",
-                        "TimeWakeUp": "",
+                        "TimeSleep": "03:00",
+                        "TimeWakeUp": "13:00",
                         "Notes": ["I woke up early"]
                     }
                 ]

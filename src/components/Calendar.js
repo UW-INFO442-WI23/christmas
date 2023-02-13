@@ -142,6 +142,8 @@ export function DayCard(props) {
     const [addNote, setAddNote] = useState('');
     // User Wake up and Sleep UseState
     const [storedNotes, setStoredNotes] = useState([]); // Users Notes Array UseState
+    const [storedSleep, setStoredSleep] = useState('')
+    const [storedWakeUp, setStoredWakeUp] = useState('')
     const dayInfo = props.dayInfo
 
     useEffect(() => {
@@ -153,12 +155,22 @@ export function DayCard(props) {
             })
             if(userDateData !== undefined) {    
                 setStoredNotes(userDateData.Notes);
+                setStoredSleep(userDateData.TimeSleep);
+                setStoredWakeUp(userDateData.TimeWakeUp);
             }
         }  
     }, [])
 
     const handleInputNote = (event) => {
         setAddNote(event.target.value);
+    }
+
+    const handleSleepChange = (event) => {
+        setStoredSleep(event.target.value);
+    }
+
+    const handleWakeUpChange = (event) => {
+        setStoredWakeUp(event.target.value);
     }
 
     const handleSubmit = () => {    
@@ -220,6 +232,29 @@ export function DayCard(props) {
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const dayofWeekDisplay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+    const onClickGetDiff = () => {
+        var value_start = storedSleep.split(':');
+        var value_end = storedWakeUp.split(':');
+
+        var time_end = new Date();
+        var time_start = new Date();
+    
+        if (value_start[0] >= 12) {
+            time_start.setDate(time_start.getDate() - 1);
+            if (value_end[0] >= 12) {;
+                time_end.setDate(time_end.getDate() - 1);
+            }
+        }
+
+        console.log(time_start, time_end)
+    
+
+        time_start.setHours(value_start[0], value_start[1], 0)
+        time_end.setHours(value_end[0], value_end[1], 0)
+
+        console.log((time_end - time_start) / 1000 / (60 * 60)) // millisecond 
+    }
+
     return (
         <div className='col'>
             <a className={highlightToday} data-bs-toggle="offcanvas" href={'#date-' + dayInfo.date + '-' + dayInfo.month} role="button" aria-controls="offcanvasExample">
@@ -232,6 +267,9 @@ export function DayCard(props) {
                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
                 <div className="offcanvas-body">
+                    <input placeholder='Time Slept Last Night' value={storedSleep} onChange={handleSleepChange} type="time" className="form-control mb-3" aria-label="Text input with dropdown button" />
+                    <input placeholder='Time Woke Up' type="time" value={storedWakeUp} onChange={handleWakeUpChange} className="form-control mb-3" aria-label="Text input with dropdown button" />
+                    <button className="btn btn-outline-secondary" type="button" onClick={onClickGetDiff}>Get Differences</button>
                     <ul className="list-group">
                         {dateNoteList}
                         <li className="list-group-item">
