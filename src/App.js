@@ -56,7 +56,7 @@ function App() {
     <div className='page-container '>
       <div className='fill-content'>
         {/* Nav Bar */}
-		    <Navbar />
+		    <Navbar loggedIn={loggedIn}/>
 			{/* Routes to each corresponding page */}
         <Routes>
 				<Route path='/' element={<Home />} />

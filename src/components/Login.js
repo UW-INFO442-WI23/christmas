@@ -1,10 +1,10 @@
 import React from 'react';
 import { redirect } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 import StyledFireBaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import Footer from "./Footer";
 import loginImage from "../img/login-image.png"
-
 
 const firebaseUIConfig = {
     signInOptions: [
@@ -15,14 +15,15 @@ const firebaseUIConfig = {
     credentialHelper: 'none',
     callbacks: {
         signInSuccessWithAuthResult: () => {
-            return false;
+            window.location.href = "/";
+        
         }
     }
 }
 function Login(props) {
     const auth = getAuth();
     if(props.loggedIn) {
-        return redirect("/");
+        window.location.href = "/";
     } else {
         return (
             <>
@@ -39,6 +40,7 @@ function Login(props) {
             </>
         );
     }
+    return redirect("/");
     
 }
 export default Login;

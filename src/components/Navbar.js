@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import logo from "../img/logo.png"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-function Navbar() {
+import { LogOut } from './Logout';
+function Navbar(props) {
     const [navOpen, setNavOpen] = useState(false)
 
     return (
@@ -50,9 +51,17 @@ function Navbar() {
                             <Link to="/login" onClick={() => setNavOpen(!navOpen)}style={{
                             top: navOpen ? "0" : "120px",
                             transitionDelay: navOpen ? "1.1s" : "0s",
+                            display: props.loggedIn ? "none" : "block"
                         }}>login</Link>
                             <div className="nav-item-wrapper"></div>
+                            <Link to="/logout" onClick={() => setNavOpen(!navOpen)}style={{
+                            top: navOpen ? "0" : "120px",
+                            transitionDelay: navOpen ? "1.1s" : "0s",
+                            display: props.loggedIn ? "block" : "none"
+                        }}>logout</Link>
+                            <div className="nav-item-wrapper"></div>
                         </li>
+                        
                     </ul>
                 </div>
         </nav>
