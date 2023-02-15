@@ -43,15 +43,16 @@ function Calendar(props) {
         <>
             <div className="container text-center bg-white">
                 <div className="row header-calendar">
+                    <div><h1 className='calendar-header'>Calendar</h1></div>
                     <div className="col">
                         <button onClick={handlePreviousMonth} type="button" className="btn btn-dark">{'<'}</button>
                     </div>
-                    <div className="col">{monthDisplayText[calendarMonth - 1]}</div>
+                    <div className="col calendar-month">{monthDisplayText[calendarMonth - 1]}</div>
                     <div className="col">
                         <button onClick={handleNextMonth} type="button" className="btn btn-dark">{'>'}</button>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row calendar-days">
                     <div className="col">Sunday</div>
                     <div className="col">Monday</div>
                     <div className="col">Tuesday</div>
@@ -61,6 +62,7 @@ function Calendar(props) {
                     <div className="col">Saturday</div>
                 </div>
                     {handleCalenderWeek}
+                    <div><h1 className='summary-header'>Weekly Summary</h1></div>
                     <WeekRecap monthDetails={monthDetails} weekCount={weekCount} userData={monthInfo}/>
             </div>
         </>
@@ -301,7 +303,7 @@ export function DayCard(props) {
             data.WeekdayNum === dayInfo.dayofWeek
         })    
         if(userDateData.length > 0) {
-            highlightToday = highlightToday + ' bg-secondary';
+            highlightToday = highlightToday + ' mb-2 bg-secondary text-white';
             
             dateNoteList = storedNotes.map((note, i) => { //Replaces this
                 return <DateNotes note={note} key={i}/>

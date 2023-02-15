@@ -240,5 +240,19 @@ p{
     height: 500px;
     width: 500px;
   }
-
+  .calendar-header{
+    color: #000;
+    margin-bottom: 2rem;
+  }
+  .calendar-month{
+    font-size: 1.5rem;
+  }
+  .calendar-days{
+    margin-top: 2rem;
+  }
+  .summary-header{
+    color: #000;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+  }
  
