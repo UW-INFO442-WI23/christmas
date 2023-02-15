@@ -9,6 +9,7 @@
                     {
                         "DateNum": 31,
                         "WeekdayNum": 2,
+                        "Week": 5,
                         "TimeSleep": "",
                         "TimeWakeUp": "",
                         "Notes": ["Testing if this works"]
@@ -22,6 +23,7 @@
                     {
                         "DateNum": 3,
                         "WeekdayNum": 5,
+                        "Week": 1,
                         "TimeSleep": "00:00",
                         "TimeWakeUp": "10:00",
                         "Notes": ["I went to sleep early", "I believe this works"]
@@ -29,9 +31,18 @@
                     {
                         "DateNum": 4,
                         "WeekdayNum": 6,
-                        "TimeSleep": "03:00",
-                        "TimeWakeUp": "13:00",
+                        "Week": 1,
+                        "TimeSleep": "23:00",
+                        "TimeWakeUp": "11:00",
                         "Notes": ["I woke up early"]
+                    },
+                    {
+                        "DateNum": 9,
+                        "WeekdayNum": 4,
+                        "Week": 2,
+                        "TimeSleep": "00:00",
+                        "TimeWakeUp": "05:45",
+                        "Notes": ["I have class"]
                     }
                 ]
             }
@@ -47,6 +58,7 @@
                     {
                         "DateNum": 4,
                         "WeekdayNum": 6,
+                        "Week": 2,
                         "TimeSleep": "",
                         "TimeWakeUp": "",
                         "Notes": ["I went to sleep early"]

@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import ImportData from  '../data/data.json'
+import ImportData from '../data/data.json'
 
 function Calendar(props) {
     const [calendarMonth, setCalendarMonth] = useState(grabPresentDate().thisMonthNumber);
-    const [givenData, setGivenData] = useState(ImportData);
     const days = daysInMonth(calendarMonth, grabPresentDate().thisYearNumber);
     const monthDetails = datesDayMonth(days, calendarMonth);
-    
-    const userMonth = givenData.find((data) => {
-        return data.user === 'testID'
+
+    const userMonth = ImportData.find((data) => {
+        return data.user === 'testID' //changed
     });
     const monthInfo = userMonth.month.find((data) => {
         return data.month === calendarMonth;
@@ -41,28 +40,101 @@ function Calendar(props) {
     }
 
     return (
-        <div className="container text-center bg-white">
-            <div className="row header-calendar">
-                <div className="col">
-                    <button onClick={handlePreviousMonth} type="button" className="btn btn-dark">{'<'}</button>
+        <>
+            <div className="container text-center bg-white">
+                <div className="row header-calendar">
+                    <div className="col">
+                        <button onClick={handlePreviousMonth} type="button" className="btn btn-dark">{'<'}</button>
+                    </div>
+                    <div className="col">{monthDisplayText[calendarMonth - 1]}</div>
+                    <div className="col">
+                        <button onClick={handleNextMonth} type="button" className="btn btn-dark">{'>'}</button>
+                    </div>
                 </div>
-                <div className="col">{monthDisplayText[calendarMonth - 1]}</div>
-                <div className="col">
-                    <button onClick={handleNextMonth} type="button" className="btn btn-dark">{'>'}</button>
+                <div className="row">
+                    <div className="col">Sunday</div>
+                    <div className="col">Monday</div>
+                    <div className="col">Tuesday</div>
+                    <div className="col">Wednesday</div>
+                    <div className="col">Thursday</div>
+                    <div className="col">Friday</div>
+                    <div className="col">Saturday</div>
                 </div>
+                    {handleCalenderWeek}
+                    <WeekRecap monthDetails={monthDetails} weekCount={weekCount} userData={monthInfo}/>
             </div>
-            <div className="row">
-                <div className="col">Sunday</div>
-                <div className="col">Monday</div>
-                <div className="col">Tuesday</div>
-                <div className="col">Wednesday</div>
-                <div className="col">Thursday</div>
-                <div className="col">Friday</div>
-                <div className="col">Saturday</div>
-            </div>
-                {handleCalenderWeek}
+        </>
+    );
+}
+
+// function that creates the rows for each week
+export function WeekRecap(props) {
+    const [weekRange, setWeekRange] = useState(0);
+    // Created an Array of data
+    const selectWeek = {}
+    for(let i=1; i<= props.weekCount; i++) {
+        const weekData = props.monthDetails.filter(data => {
+            return data.week === i;
+        })
+        selectWeek[i] = weekData;
+    }
+
+    const dayofWeekDisplay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    
+    const displaySelectGroup = Object.keys(selectWeek).map(element => {
+        const weekDate = selectWeek[element];
+        const firstDayOfWeek = weekDate[0];
+        const lastDayOfWeek = weekDate[weekDate.length - 1];
+        return (
+            <option value={element} key={element}>
+                {dayofWeekDisplay[firstDayOfWeek.dayofWeek] + ", " + firstDayOfWeek.date + " - " + dayofWeekDisplay[lastDayOfWeek.dayofWeek] + ", " + lastDayOfWeek.date}
+            </option>
+        )
+    })
+
+    const handleWeekChange = (event) => {
+        let weekValue = parseInt(event.target.value)
+        console.log(selectWeek[weekValue], props.userData.date);
+        const selectedWeekRange = props.userData.date.filter(element => {
+            return weekValue === element.Week
+        })
+        let sleepDataSum = 0;
+        selectedWeekRange.forEach(element => {
+            
+            sleepDataSum += grabDifferences(element.TimeSleep, element.TimeWakeUp);
+        })
+        setWeekRange(sleepDataSum / selectedWeekRange.length || 0); //Set value based on averages or 0 if there's non
+    }
+
+    return (
+        <div className="row bg-body-secondary">
+            <select className="form-select" aria-label="Default select example" onChange={handleWeekChange}>
+                <option value=''>Select a Week</option>
+                {displaySelectGroup}
+            </select>
+            <p className="p-3 mb-2 text-dark">Average Number of Sleep: {weekRange}</p>
         </div>
     );
+}
+
+function grabDifferences(timeSleep, timeWakeUp) {
+    var value_start = timeSleep.split(':');
+    var value_end = timeWakeUp.split(':');
+
+    var time_end = new Date();
+    var time_start = new Date();
+
+    if (value_start[0] >= 12) {
+        time_start.setDate(time_start.getDate() - 1);
+        if (value_end[0] >= 12) {;
+            time_end.setDate(time_end.getDate() - 1);
+        }
+    }
+
+    time_start.setHours(value_start[0], value_start[1], 0)
+    time_end.setHours(value_end[0], value_end[1], 0)
+
+    return (time_end - time_start) / 1000 / (60 * 60);
 }
 
 // a function to references today's date
@@ -113,7 +185,7 @@ export function WeekCard(props) {
     const displayWeek = filterWeek.map((data) => <DayCard addMonth={props.addMonth} userData={props.userData} dayInfo={data} key={data.date + data.dayofWeek}/>)
     return (
         <div className="row">
-            {displayWeek}
+                {displayWeek}
         </div>
     );
 }
@@ -173,34 +245,42 @@ export function DayCard(props) {
         setStoredWakeUp(event.target.value);
     }
 
-    const handleSubmit = () => {    
-        // 0. Check if existing month data exists
-        // 0a. If it doesn't, then make a new one
-        console.log(props.userData);
+    const checkDataExist = () => {
+        // 1. Check if existing month data exists
+        // 1a. If it doesn't, then make a new one
         if(props.userData === undefined) {
             props.addMonth();
         }
-          
-        // 1. check if note exists for day
+        // 2. check if note exists for day
         let dateNotesData = props.userData.date.find((data) => {
             return data.DateNum === dayInfo.date &&
             data.WeekdayNum === dayInfo.dayofWeek
-        })     
-        // 1a. if it doesn't exists, then make a new one
+        })  
+
+        // 2a. if it doesn't exists, then make a new one
         if (dateNotesData === undefined) {
             const newDateInfo = {
                 DateNum: dayInfo.date,
-                Notes: [],
-                TimeSleep: "",
-                TimeWakeUp: "",
-                WeekdayNum: dayInfo.dayofWeek
+                WeekdayNum: dayInfo.dayofWeek,
+                Week: dayInfo.week,
+                TimeSleep: storedSleep,
+                TimeWakeUp: storedWakeUp,
+
+                Notes: []
             }
             props.userData.date.push(newDateInfo);
         }
-        // 2. add notes to array
+    }
+
+    const handleSubmitNote = () => {    
+        checkDataExist();
+        // Add notes to array and reset note values
         setStoredNotes([...storedNotes, addNote]);
-        // Clean Up
         setAddNote('');
+    }
+
+    const handleSubmitTime = () => {
+        checkDataExist();
     }
 
     // have blank card if date doesn't exist
@@ -232,29 +312,6 @@ export function DayCard(props) {
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const dayofWeekDisplay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    const onClickGetDiff = () => {
-        var value_start = storedSleep.split(':');
-        var value_end = storedWakeUp.split(':');
-
-        var time_end = new Date();
-        var time_start = new Date();
-    
-        if (value_start[0] >= 12) {
-            time_start.setDate(time_start.getDate() - 1);
-            if (value_end[0] >= 12) {;
-                time_end.setDate(time_end.getDate() - 1);
-            }
-        }
-
-        console.log(time_start, time_end)
-    
-
-        time_start.setHours(value_start[0], value_start[1], 0)
-        time_end.setHours(value_end[0], value_end[1], 0)
-
-        console.log((time_end - time_start) / 1000 / (60 * 60)) // millisecond 
-    }
-
     return (
         <div className='col'>
             <a className={highlightToday} data-bs-toggle="offcanvas" href={'#date-' + dayInfo.date + '-' + dayInfo.month} role="button" aria-controls="offcanvasExample">
@@ -269,14 +326,14 @@ export function DayCard(props) {
                 <div className="offcanvas-body">
                     <input placeholder='Time Slept Last Night' value={storedSleep} onChange={handleSleepChange} type="time" className="form-control mb-3" aria-label="Text input with dropdown button" />
                     <input placeholder='Time Woke Up' type="time" value={storedWakeUp} onChange={handleWakeUpChange} className="form-control mb-3" aria-label="Text input with dropdown button" />
-                    <button className="btn btn-outline-secondary" type="button" onClick={onClickGetDiff}>Get Differences</button>
+                    <button className="btn btn-outline-secondary mb-3" type="button" onClick={handleSubmitTime}>Update Time</button>
                     <ul className="list-group">
                         {dateNoteList}
                         <li className="list-group-item">
                             <div className='input-group'>
                                 <input value={addNote} onChange={handleInputNote} type="text" className="form-control" placeholder="Add Notes" aria-label="text box" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
-                                    <button className="btn btn-outline-secondary" type="button" onClick={handleSubmit}>+</button>
+                                    <button className="btn btn-outline-secondary" type="button" onClick={handleSubmitNote}>+</button>
                                 </div>
                             </div>
                         </li>
