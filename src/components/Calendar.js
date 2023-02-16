@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImportData from '../data/data.json'
+import Footer from "./Footer";
+import rocketImage from "../img/rocket.png"
 
 function Calendar(props) {
     const [calendarMonth, setCalendarMonth] = useState(grabPresentDate().thisMonthNumber);
@@ -65,6 +67,7 @@ function Calendar(props) {
                     <div><h1 className='summary-header'>Weekly Summary</h1></div>
                     <WeekRecap monthDetails={monthDetails} weekCount={weekCount} userData={monthInfo}/>
             </div>
+            <Footer/>
         </>
     );
 }
@@ -72,6 +75,16 @@ function Calendar(props) {
 // function that creates the rows for each week
 export function WeekRecap(props) {
     const [weekRange, setWeekRange] = useState(0);
+    let weekmessage = "";
+    if(weekRange > 8){
+        weekmessage = "Way to go!!! Keep going"
+    }else if(weekRange > 6){
+        weekmessage = "Keep this amount of sleep at least?"
+    }else if (weekRange > 5){
+        weekmessage = "not having enough sleep?";
+    }else if (weekRange > 4){
+        weekmessage = "probably, check out the resources if you're struggling?";
+    }
     // Created an Array of data
     const selectWeek = {}
     for(let i=1; i<= props.weekCount; i++) {
@@ -114,7 +127,8 @@ export function WeekRecap(props) {
                 <option value=''>Select a Week</option>
                 {displaySelectGroup}
             </select>
-            <p className="p-3 mb-2 text-dark">Average Number of Sleep: {weekRange}</p>
+            <p className="p-3 mb-2 text-dark average-num-sleep">Average Number of Sleep: {weekRange}</p>
+            <p className='week-message'>{weekmessage}</p>
         </div>
     );
 }

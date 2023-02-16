@@ -255,4 +255,16 @@ p{
     margin-bottom: 2rem;
     margin-top: 4rem;
   }
- 
+  .average-num-sleep{
+    font-size: 1.2rem;
+  }
+ .week-message{
+    color: #000;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+ }
+ .rocket-image{
+    width: 160px;
+    height: 100px;
+ }
