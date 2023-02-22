@@ -148,9 +148,9 @@ export function WeekRecap(props) {
                        "If you're feeling like a walking dead, you might need some shut-eye!"
                     ]
 
-    if(props.weekRange > 7){
+    if(props.weekRange >= 7){
         weekmessage.push(goodAmount[Math.floor(Math.random() * 10)]);
-    }else{
+    }else if (props.weekRange > 0 && props.weekRange < 7 ) {
         weekmessage.push(badAmount[Math.floor(Math.random() * 10)])
     }
     // Created an Array of data
