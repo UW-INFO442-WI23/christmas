@@ -164,17 +164,17 @@ p{
 }
 /*about us page*/
 .aboutUs-image{
-    width: 500px;
+    width: 70%;
 }
 /* home page */
 .graph-image{
-    width: 400px;
+    width: 70%;
 }
 .intro{
     font-size: 32px;
 }
 .calendar-image{
-    width: 400px;
+    width: 50%;
 }
 .last-message{
     text-align: center;
@@ -182,7 +182,7 @@ p{
 }
 /* resources page */
 .sleep-image{
-    width: 400px;
+    width: 70%;
     border-radius: 8px;
 }
 

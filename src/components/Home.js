@@ -15,10 +15,10 @@ function Home() {
                                 <button className="link-button">try it out</button>
                             </a>
                         </div>
-                        <div className="content col-xs-6 col-md-5 m-4">
+                        <div className="content col-xs-6 col-md-5 m-4 d-flex justify-content-center">
                             <img className="graph-image" src={graph_image} alt='graph'></img>
                         </div>
-                        <div className="col-xs-4 col-md-8 mt-8">
+                        <div className="col-xs-4 col-md-8 mt-8 d-flex justify-content-center">
                             <img className="calendar-image mt-5" src={calendar_image} alt='graph'></img>
                         </div>
                         <div className="col-xs-4 col-md-4 mt-5">

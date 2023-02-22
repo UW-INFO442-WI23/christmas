@@ -26,16 +26,20 @@ function Login(props) {
     } else {
         return (
             <>
-                <div className="container header-content">
-                <section className="row header-content align-items-center">
-                    <h1 className='login-header'>Welcome to Sleep & See</h1>
-                    <StyledFireBaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth}/>
-                </section>
-                <div className="content login-image-sec">
-                    <img className="login-image" src={loginImage} alt='graph'></img>
-                </div>
-            </div>
-            <Footer/>
+                <main>
+                    <div className="container">
+                        <div className="content header-content">
+                            <section className="row header-content align-items-center">
+                                <h1 className='login-header'>Welcome to Sleep & See</h1>
+                                <StyledFireBaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth}/>
+                            </section>
+                        </div>
+                        <div className="content login-image-sec">
+                            <img className="login-image" src={loginImage} alt='graph'></img>
+                        </div>
+                    </div>
+                </main>
+                <Footer/>
             </>
         );
     }
