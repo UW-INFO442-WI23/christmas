@@ -433,7 +433,7 @@ export function DayCard(props) {
 
     if(Object.keys(dateNotesData).length !== 0) {
         if(dateNotesData.TimeSleep !== "" && dateNotesData.TimeWakeUp !== "") {
-            highlightToday = highlightToday + " bg-secondary"
+            highlightToday = highlightToday + " bg-secondary text-white"
         }
     }
 
