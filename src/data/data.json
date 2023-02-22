@@ -1,6 +1,6 @@
 [
     {
-        "user": "testID",
+        "user": "aho@gmail.com",
         "month": [
             {
                 "month": 1,
@@ -20,6 +20,14 @@
                 "month": 2,
                 "Year": 2023,
                 "date": [
+                    {
+                        "DateNum": 1,
+                        "WeekdayNum": 3,
+                        "Week": 1,
+                        "TimeSleep": "23:00",
+                        "TimeWakeUp": "06:00",
+                        "Notes": ["I went to sleep on the bus"]
+                    },
                     {
                         "DateNum": 3,
                         "WeekdayNum": 5,
@@ -45,24 +53,142 @@
                         "Notes": ["I have class"]
                     }
                 ]
+            },
+            {
+                "month": 3,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 4,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 5,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 6,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 7,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 8,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 9,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 10,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 11,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 12,
+                "Year": 2023,
+                "date": [
+                ]
             }
         ]
     },
     {
-        "user": "testID2",
+        "user": "",
         "month": [
+            {
+                "month": 1,
+                "Year": 2023,
+                "date": [
+                ]
+            },
             {
                 "month": 2,
                 "Year": 2023,
                 "date": [
-                    {
-                        "DateNum": 4,
-                        "WeekdayNum": 6,
-                        "Week": 2,
-                        "TimeSleep": "",
-                        "TimeWakeUp": "",
-                        "Notes": ["I went to sleep early"]
-                    }
+                ]
+            },
+            {
+                "month": 3,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 4,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 5,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 6,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 7,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 8,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 9,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 10,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 11,
+                "Year": 2023,
+                "date": [
+                ]
+            },
+            {
+                "month": 12,
+                "Year": 2023,
+                "date": [
                 ]
             }
         ]

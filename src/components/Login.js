@@ -16,7 +16,6 @@ const firebaseUIConfig = {
     callbacks: {
         signInSuccessWithAuthResult: () => {
             window.location.href = "/";
-        
         }
     }
 }

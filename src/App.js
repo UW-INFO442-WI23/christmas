@@ -12,8 +12,7 @@ import Better from './components/Better';
 import Calendar from './components/Calendar';
 import background from "./img/bg-lg.png"
 import { LogOut } from './components/Logout';
-import ImportData from  './data/data.json'
-import * as d3 from "d3";
+import { getDatabase, ref, onValue, set, push as firebasePush } from 'firebase/database';
 
 function App() {
 	const [errorMessage, setErrorMessage] = useState(null);
@@ -31,27 +30,18 @@ function App() {
 			height: '100vh'
 		}
 	};
-	async function fetchData() {
-		try {
-			const data = await d3.json("./data/data.json");
-			const userMonth = data.find((data) => {
-				return data.user === 'testID' //changed
-			});
-			console.log(userMonth, 'testing')
-			setUserData(userMonth);
-		} catch (error) {
-			setErrorMessage(error)
-		}
-	}	
+	// Loading Firebase Data
+	const db = getDatabase();
+	const dataRef = ref(db, 'AllData');
+
 	// Check if User Login
 	useEffect(() => {
-		fetchData();
 		const auth = getAuth();
 		const unregisterAuthListener = onAuthStateChanged(auth, (firebaseUser) => {
 			if(firebaseUser) {
+				console.log('Logging In')
 				setUser(firebaseUser);
 				setLoggedIn(true);
-				console.log("loggin in", firebaseUser, loggedIn);
 			} else {
 				console.log("logging out");
 				setUser({});
@@ -59,33 +49,107 @@ function App() {
 			}
 		})
 
+		// Extracting Data
+		const offFunction = onValue(dataRef, (snapshot) => {
+			const allData = snapshot.val();
+			const dataKeys = Object.keys(allData);
+			const dataArray = dataKeys.map((key) => {
+				const userData = allData[key];
+				return userData;
+			})
+			setUserData(dataArray);
+		})
+
 		function cleanup() { 
 			unregisterAuthListener();
+			offFunction();
 		}
 
 		return cleanup;
-		}, []) 
+	}, []) 
 
-	console.log(userData, 'main');
+
+	function handleNewUser() {
+		// console.log(user.uid)
+		console.log(user.uid)
+		if(loggedIn) {
+			const fireData = userData;
+			let existingUser = fireData.find(data => {
+				return data.user === user.email;
+			})
+			if(existingUser === undefined) {
+				// Creates Templete for NewUsers
+				// const newUser = newUserData(user.email);
+				const month = [...Array(12)].map((e, i) => {
+					return ({
+						"month": i + 1,
+						"Year": 2023,
+						"date": [
+							{
+								"DateNum": -1,
+								"WeekdayNum": -1,
+								"Week": -1,
+								"TimeSleep": "",
+								"TimeWakeUp": "",
+								"Notes": [""]
+							}
+						]
+					})
+				})
+				// firebasePush(ref(db, 'AllData/' + user.uid), newUser);
+				set(ref(db, 'AllData/' + user.uid), {
+					user: user.email,
+					month
+				});
+			}
+		}
+	}
+
+	// Create a new Dataset for newUsers
+
+	// function newUserData(givenUser) {
+	// 	const month = [...Array(12)].map((e, i) => {
+	// 		return ({
+	// 			"month": i + 1,
+	// 			"Year": 2023,
+	// 			"date": [
+	// 				{
+    //                     "DateNum": -1,
+    //                     "WeekdayNum": -1,
+    //                     "Week": -1,
+    //                     "TimeSleep": "",
+    //                     "TimeWakeUp": "",
+    //                     "Notes": [""]
+    //                 }
+	// 			]
+	// 		})
+	// 	})
+	// 	const newData = {
+	// 		user: givenUser,
+	// 		month
+	// 	}
+	// 	return newData;
+	// }
+
 	return (
 		// Main div that contains all the pages.
 		<div className='page-container '>
-		<div className='fill-content'>
-			{/* Nav Bar */}
-				<Navbar loggedIn={loggedIn}/>
-				{/* Routes to each corresponding page */}
-			<Routes>
-					<Route path='/' element={<Home />} />
-			<Route path='/calendar' element={<Calendar ImportData={userData}/>} />
-					<Route path='/about' element={<About />} />
-					<Route path='/resources' element={<Resources />} />
-						<Route path='/healthier' element={<Healthier />} />
-						<Route path='/faster' element={<Faster />} />
-						<Route path='/better' element={<Better />} />
-					<Route path='/login' element={<Login loggedIn={loggedIn}/>} />
-			<Route path='/logout' element={<LogOut />} />
-				</Routes>
-				</div>
+			<div className='fill-content'>
+				{/* Nav Bar */}
+					<Navbar loggedIn={loggedIn}/>
+					{/* Routes to each corresponding page */}
+				<Routes>
+						<Route path='/' element={<Home />} />
+				<Route path='/calendar' element={<Calendar handleNewUser={handleNewUser} importData={userData} user={user} loggedIn={loggedIn}/> }/>
+						<Route path='/about' element={<About />} />
+						<Route path='/resources' element={<Resources />} />
+							<Route path='/healthier' element={<Healthier />} />
+							<Route path='/faster' element={<Faster />} />
+							<Route path='/better' element={<Better />} />
+						<Route path='/login' element={<Login loggedIn={loggedIn}/>} />
+				<Route path='/logout' element={<LogOut />} />
+					</Routes>
+			</div>
 		</div>
 	);
 }

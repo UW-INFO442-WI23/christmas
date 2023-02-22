@@ -1,46 +1,86 @@
+'use strict';
+
 import React, { useState, useEffect } from 'react';
-import ImportData from '../data/data.json'
+import blankData from '../data/blank-user.json'
 import Footer from "./Footer";
+import { get, getDatabase, ref, update, set } from 'firebase/database';
 import rocketImage from "../img/rocket.png"
 
 function Calendar(props) {
     const [calendarMonth, setCalendarMonth] = useState(grabPresentDate().thisMonthNumber);
     const days = daysInMonth(calendarMonth, grabPresentDate().thisYearNumber);
     const monthDetails = datesDayMonth(days, calendarMonth);
+    // Weekly Recap
+    const [selectSummary, setSelectSummary] = useState('0');
+    const [weekRange, setWeekRange] = useState(0);
+    // Assign Values
+    const givenData = props.importData;
+    const user = props.user;
 
-    const userMonth = ImportData.find((data) => {
-        return data.user === 'testID' //changed
-    });
-    const monthInfo = userMonth.month.find((data) => {
-        return data.month === calendarMonth;
-    })
+    if(props.loggedIn) {
+        const db = getDatabase();
+        const pathway = '/AllData/' + props.user.uid;
+        get(ref(db, pathway)).then((snapshot) => {
+            if(!snapshot.exists()) {
+                console.log('Registering New User')
+                props.handleNewUser()
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
-    const addMonth = () => {
-        const newMonthData = {
-            month: calendarMonth,
-            Year: 2023,
-            date: []
+    let userMonth = {};
+    let monthInfo = {}
+    if(props.loggedIn) {
+        Object.keys(givenData).forEach(keys => {
+            if(givenData[keys].user === user.email) {
+                userMonth = givenData[keys]
+            }
+        })
+        if (Object.keys(userMonth).length === 0) {
+            return <></>;
         }
-        userMonth.month.push(newMonthData);
+        userMonth.month.forEach(month => {
+            if(month.month === calendarMonth) {
+                monthInfo = month;
+            }
+        })
+    } else {
+        userMonth = blankData;
+        userMonth.month.forEach(month => {
+            if(month.month === calendarMonth) {
+                monthInfo = month;
+            }
+        })
+    }
+
+    const resetWeekRecap = () => {
+        setSelectSummary('0');
+        setWeekRange(0);
     }
 
     let weekCount = monthDetails[Object.keys(monthDetails).length - 1].week;
-    const handleCalenderWeek = [...Array(weekCount)].map((e, i) => <WeekCard addMonth={addMonth} userData={monthInfo} monthData={monthDetails} weekNum={i + 1} key={i}/>)
+    const handleCalenderWeek = [...Array(weekCount)].map((e, i) => <WeekCard loggedIn={props.loggedIn} setWeekRange={resetWeekRecap} user={user} userData={monthInfo} monthData={monthDetails} weekNum={i + 1} key={i}/>)
 
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     const handlePreviousMonth = (event) => {
         if(calendarMonth > 1) {
-            setCalendarMonth(calendarMonth - 1)
+            setCalendarMonth(calendarMonth - 1);
+            resetWeekRecap()
         }
     }
 
     const handleNextMonth = (event) => {
         if(calendarMonth < 12) {
-            setCalendarMonth(calendarMonth + 1)
+            setCalendarMonth(calendarMonth + 1);
+            resetWeekRecap()
         }
     }
-
+    // return (
+    //     <></>
+    // )
     return (
         <>
             <div className="container text-center bg-white">
@@ -65,7 +105,7 @@ function Calendar(props) {
                 </div>
                     {handleCalenderWeek}
                     <div><h1 className='summary-header'>Weekly Summary</h1></div>
-                    <WeekRecap monthDetails={monthDetails} weekCount={weekCount} userData={monthInfo}/>
+                    <WeekRecap weekRange={weekRange} setWeekRange={setWeekRange} setSelectSummary={setSelectSummary} selectSummary={selectSummary} monthDetails={monthDetails} weekCount={weekCount} userData={monthInfo}/>
             </div>
             <Footer/>
         </>
@@ -74,15 +114,14 @@ function Calendar(props) {
 
 // function that creates the rows for each week
 export function WeekRecap(props) {
-    const [weekRange, setWeekRange] = useState(0);
     let weekmessage = "";
-    if(weekRange > 8){
+    if(props.weekRange > 8){
         weekmessage = "Way to go!!! Keep going"
-    }else if(weekRange > 6){
+    }else if(props.weekRange > 6){
         weekmessage = "Keep this amount of sleep at least?"
-    }else if (weekRange > 5){
+    }else if (props.weekRange > 5){
         weekmessage = "not having enough sleep?";
-    }else if (weekRange > 4){
+    }else if (props.weekRange > 4){
         weekmessage = "probably, check out the resources if you're struggling?";
     }
     // Created an Array of data
@@ -108,26 +147,31 @@ export function WeekRecap(props) {
     })
 
     const handleWeekChange = (event) => {
+        props.setSelectSummary(event.target.value)
         let weekValue = parseInt(event.target.value)
-        console.log(selectWeek[weekValue], props.userData.date);
-        const selectedWeekRange = props.userData.date.filter(element => {
-            return weekValue === element.Week
+
+        const dateNotesData = []
+        Object.keys(props.userData.date).find(key => {
+            let data = props.userData.date[key];
+            if(weekValue === data.Week) {
+                dateNotesData.push(props.userData.date[key]);
+            }
         })
+
         let sleepDataSum = 0;
-        selectedWeekRange.forEach(element => {
-            
+        dateNotesData.forEach(element => {
             sleepDataSum += grabDifferences(element.TimeSleep, element.TimeWakeUp);
         })
-        setWeekRange(sleepDataSum / selectedWeekRange.length || 0); //Set value based on averages or 0 if there's non
+        props.setWeekRange(sleepDataSum / dateNotesData.length || 0); //Set value based on averages or 0 if there's non
     }
 
     return (
         <div className="row bg-body-secondary">
-            <select className="form-select" aria-label="Default select example" onChange={handleWeekChange}>
-                <option value=''>Select a Week</option>
+            <select className="form-select" aria-label="Default select example" onChange={handleWeekChange} value={props.selectSummary}>
+                <option value='0'>Select a Week</option>
                 {displaySelectGroup}
             </select>
-            <p className="p-3 mb-2 text-dark average-num-sleep">Average Number of Sleep: {weekRange}</p>
+            <p className="p-3 mb-2 text-dark average-num-sleep">Average Number of Sleep: {props.weekRange}</p>
             <p className='week-message'>{weekmessage}</p>
         </div>
     );
@@ -198,7 +242,7 @@ export function WeekCard(props) {
         return data.week === props.weekNum;
     })
     checkWeekData(filterWeek);
-    const displayWeek = filterWeek.map((data) => <DayCard addMonth={props.addMonth} userData={props.userData} dayInfo={data} key={data.date + data.dayofWeek}/>)
+    const displayWeek = filterWeek.map((data) => <DayCard loggedIn={props.loggedIn} setWeekRange={props.setWeekRange} user={props.user} userData={props.userData} dayInfo={data} key={data.date + data.dayofWeek + data.month}/>)
     return (
         <div className="row">
                 {displayWeek}
@@ -229,22 +273,33 @@ function checkWeekData(data) {
 export function DayCard(props) {
     const [addNote, setAddNote] = useState('');
     // User Wake up and Sleep UseState
-    const [storedNotes, setStoredNotes] = useState([]); // Users Notes Array UseState
+    const [storedNotes, setStoredNotes] = useState([""]); // Users Notes Array UseState
     const [storedSleep, setStoredSleep] = useState('')
     const [storedWakeUp, setStoredWakeUp] = useState('')
     const dayInfo = props.dayInfo
 
     useEffect(() => {
         // checkData();
+        // Find doesn't work cause it's an object and key values
+        // Need to loop through objects
         if(props.userData !== undefined) {
-            const userDateData = props.userData.date.find((data) => {
-                return data.DateNum ===  dayInfo.date &&
-                data.WeekdayNum === dayInfo.dayofWeek
-            })
+            let userDateData = {};
+            Object.keys(props.userData.date).find(key => {
+                let data = props.userData.date[key];
+                if(data.DateNum === dayInfo.date && data.WeekdayNum === dayInfo.dayofWeek) {
+                    userDateData = props.userData.date[key];
+                }
+            }) 
+            // console.log(userDateData);
+            // const userDateData = props.userData.date.find((data) => {
+            //     return data.DateNum ===  dayInfo.date &&
+            //     data.WeekdayNum === dayInfo.dayofWeek &&
+            //     props.userData.month === dayInfo.month
+            // })
             if(userDateData !== undefined) {    
-                setStoredNotes(userDateData.Notes);
                 setStoredSleep(userDateData.TimeSleep);
                 setStoredWakeUp(userDateData.TimeWakeUp);
+                setStoredNotes(userDateData.Notes || [""]);
             }
         }  
     }, [])
@@ -262,40 +317,61 @@ export function DayCard(props) {
     }
 
     const checkDataExist = () => {
-        // 1. Check if existing month data exists
-        // 1a. If it doesn't, then make a new one
-        if(props.userData === undefined) {
-            props.addMonth();
-        }
-        // 2. check if note exists for day
-        let dateNotesData = props.userData.date.find((data) => {
-            return data.DateNum === dayInfo.date &&
-            data.WeekdayNum === dayInfo.dayofWeek
-        })  
-
-        // 2a. if it doesn't exists, then make a new one
-        if (dateNotesData === undefined) {
-            const newDateInfo = {
-                DateNum: dayInfo.date,
-                WeekdayNum: dayInfo.dayofWeek,
-                Week: dayInfo.week,
-                TimeSleep: storedSleep,
-                TimeWakeUp: storedWakeUp,
-
-                Notes: []
+        let dateNotesData = {};
+        Object.keys(props.userData.date).find(key => {
+            let data = props.userData.date[key];
+            if(data.DateNum === dayInfo.date && data.WeekdayNum === dayInfo.dayofWeek) {
+                dateNotesData = props.userData.date[key];
             }
-            props.userData.date.push(newDateInfo);
+        }) 
+        console.log(Object.keys(dateNotesData).length === 0, dateNotesData);
+
+        let noteList = [...storedNotes];
+        if(addNote !== "") {
+            noteList = [...storedNotes, addNote]
+        }
+
+        const newDateInfo = {
+            DateNum: dayInfo.date,
+            WeekdayNum: dayInfo.dayofWeek,
+            Week: dayInfo.week,
+            TimeSleep: storedSleep,
+            TimeWakeUp: storedWakeUp,
+            Notes: noteList,
+        }
+        props.userData.date[dayInfo.date] = newDateInfo;
+        
+        // Push to Firebase
+        // If statment, if data exist, then update, else set new values
+        if(props.loggedIn) {
+            const db = getDatabase();
+            const pathway = '/AllData/' + props.user.uid + '/month/' + (dayInfo.month - 1) + '/date/' + dayInfo.date;
+            get(ref(db, pathway)).then((snapshot) => {
+                if(snapshot.exists()) {
+                    console.log(snapshot.val());
+                    update(ref(db, pathway), {
+                        TimeSleep: storedSleep,
+                        TimeWakeUp: storedWakeUp,
+                        Notes: noteList,
+                    })
+                } else {
+                    console.log('Adding new Data')
+                    set(ref(db, pathway), newDateInfo);
+                }
+            }).catch((error) => {
+                console.log(error)
+            })
         }
     }
 
     const handleSubmitNote = () => {    
-        checkDataExist();
-        // Add notes to array and reset note values
         setStoredNotes([...storedNotes, addNote]);
+        checkDataExist();
         setAddNote('');
     }
 
     const handleSubmitTime = () => {
+        props.setWeekRange(0);
         checkDataExist();
     }
 
@@ -311,18 +387,22 @@ export function DayCard(props) {
 
     // Filter to get each date
     let dateNoteList = <></>;
-    if(props.userData !== undefined) {
-        let userDateData = props.userData.date.filter((data) => {
-            return data.DateNum === dayInfo.date &&
-            data.WeekdayNum === dayInfo.dayofWeek
-        })    
-        if(userDateData.length > 0) {
-            highlightToday = highlightToday + ' mb-2 bg-secondary text-white';
-            
-            dateNoteList = storedNotes.map((note, i) => { //Replaces this
-                return <DateNotes note={note} key={i}/>
-            })
+
+    let dateNotesData = {};
+    Object.keys(props.userData.date).find(key => {
+        let data = props.userData.date[key];
+        if(data.DateNum === dayInfo.date && data.WeekdayNum === dayInfo.dayofWeek) {
+            dateNotesData = props.userData.date[key];
         }
+    })
+
+    if(dateNotesData.Notes !== undefined) {
+        dateNoteList = dateNotesData.Notes.map((note, i) => {
+            if(note !== '') {
+                return <DateNotes note={note} key={i}/>
+            }
+            return <></>;
+        })
     }
 
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
