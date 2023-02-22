@@ -70,7 +70,6 @@ function App() {
 
 
 	function handleNewUser() {
-		// console.log(user.uid)
 		console.log(user.uid)
 		if(loggedIn) {
 			const fireData = userData;
@@ -79,7 +78,6 @@ function App() {
 			})
 			if(existingUser === undefined) {
 				// Creates Templete for NewUsers
-				// const newUser = newUserData(user.email);
 				const month = [...Array(12)].map((e, i) => {
 					return ({
 						"month": i + 1,
@@ -104,32 +102,6 @@ function App() {
 			}
 		}
 	}
-
-	// Create a new Dataset for newUsers
-
-	// function newUserData(givenUser) {
-	// 	const month = [...Array(12)].map((e, i) => {
-	// 		return ({
-	// 			"month": i + 1,
-	// 			"Year": 2023,
-	// 			"date": [
-	// 				{
-    //                     "DateNum": -1,
-    //                     "WeekdayNum": -1,
-    //                     "Week": -1,
-    //                     "TimeSleep": "",
-    //                     "TimeWakeUp": "",
-    //                     "Notes": [""]
-    //                 }
-	// 			]
-	// 		})
-	// 	})
-	// 	const newData = {
-	// 		user: givenUser,
-	// 		month
-	// 	}
-	// 	return newData;
-	// }
 
 	return (
 		// Main div that contains all the pages.
