@@ -114,15 +114,34 @@ function Calendar(props) {
 
 // function that creates the rows for each week
 export function WeekRecap(props) {
-    let weekmessage = "";
-    if(props.weekRange > 8){
-        weekmessage = "Way to go!!! Keep going"
-    }else if(props.weekRange > 6){
-        weekmessage = "Keep this amount of sleep at least?"
-    }else if (props.weekRange > 5){
-        weekmessage = "not having enough sleep?";
-    }else if (props.weekRange > 4){
-        weekmessage = "probably, check out the resources if you're struggling?";
+    let weekmessage = [];
+    const goodAmount = ["Sleeping like a baby never looked so good!", 
+                        "Get your zzz's and wake up with ease!", 
+                        "Sweet dreams are made of good sleep!", 
+                        "Catch some quality Z's and feel like a million bucks!",
+                        "The best things in life are free, like a good night's sleep!",
+                        "Sleep is the ultimate beauty treatment, and you deserve to wake up looking fabulous!",
+                        "Want to be a superhero tomorrow? Start by getting a good night's sleep tonight!",
+                        "A good night's sleep is like hitting the reset button on your body and mind!",
+                        "Say goodbye to dark circles and hello to sweet dreams!",
+                        "Don't let insomnia be your arch-nemesis; conquer it with a good night's sleep!"
+                    ]
+    const badAmount = ["Without sleep, you're just a zombie in disguise!",
+                       "Sleep deprivation is like a bad hair day for your brain!",
+                       "No beauty sleep, no beauty glow!",
+                       "Sleep is free, but the cost of not getting enough is high!",
+                       "Sleep is not a luxury, it's a necessity!",
+                       "You can't run on empty, so get some sleep!",
+                       "Want to feel like a grumpy cat? Just skip your sleep!",
+                       "The night is too short to skip sleep!",
+                       "Sleeping is like hitting the save button for your brain, don't forget to save!",
+                       "If you're feeling like a walking dead, you might need some shut-eye!"
+                    ]
+
+    if(props.weekRange > 7){
+        weekmessage.push(goodAmount[Math.floor(Math.random() * 10)]);
+    }else{
+        weekmessage.push(badAmount[Math.floor(Math.random() * 10)])
     }
     // Created an Array of data
     const selectWeek = {}
