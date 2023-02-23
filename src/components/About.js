@@ -28,19 +28,24 @@ const About = () => {
               <h1>about us</h1>
             </div>
             <div className="content col-xs-5 col-md-6 m-2 p-6">
-              <p className='col-xs-5 col-md-12 m-4 p-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p className='col-xs-5 col-md-12 m-4 p-6'>sleep&see is a comprehensive platform that helps users improve their sleep quality and overall wellbeing. sleep&see tracks sleep patterns and encourages daily journaling. users can also receive customized recommendations to optimize their sleep habits. with sleep&see, users can take control of their sleep and wake up feeling refreshed and rejuvenated.</p>
             </div>
             <div className="col-md-5 col-xs-12 d-flex justify-content-center">
                 <img className="aboutUs-image" src={aboutUs_image} alt='team color'></img>
             </div>
           </section>
+        </div>
+        <div className="container">
           <section className="row header-content">
             <div className="col-xs-12 col-md-12 mt-5">
-              <CardContainer memberInfo={memberInfo}></CardContainer>
-              <Footer />
+              <h1>meet the team</h1>
+                <div className="col-xs-12 col-md-12 mt-5">
+                  <CardContainer memberInfo={memberInfo}></CardContainer>
+                </div>
             </div>
           </section>
         </div>
+        <Footer />
       </main>
       <Footer />
     </>
