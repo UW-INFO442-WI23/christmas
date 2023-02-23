@@ -268,3 +268,9 @@ p{
     width: 160px;
     height: 100px;
  }
+
+ #about-card {
+  max-width: 400px;
+  max-height: 800px;
+  background-color: #9E91BF;
+ }
