@@ -13,7 +13,7 @@ const memberInfo = [
   {name: 'Brian',
    desc: 'insert text here'},
   {name: 'John',
-   desc: "insert text here"},
+   desc: "Second-year undergraduate and senior in Informatics. Aspiring UI/UX researcher and designer, but thoroughly enjoys rocking out on a drum set, freestyle dancing, drawing, and cooking in his free time!"},
   {name: 'Takumi',
    desc: "insert text here"}
 ]
@@ -28,7 +28,12 @@ const About = () => {
               <h1>about us</h1>
             </div>
             <div className="content col-xs-5 col-md-6 m-2 p-6">
-              <p className='col-xs-5 col-md-12 m-4 p-6'>sleep&see is a comprehensive platform that helps users improve their sleep quality and overall wellbeing. sleep&see tracks sleep patterns and encourages daily journaling. users can also receive customized recommendations to optimize their sleep habits. with sleep&see, users can take control of their sleep and wake up feeling refreshed and rejuvenated.</p>
+              <p className='col-xs-5 col-md-12 m-4 p-6'>
+                Are you tired of feeling tired? Look no further than sleep&see!</p>
+              <p className='col-xs-5 col-md-12 m-4 p-6'>
+                Research shows that a consistent sleeping schedule, more knowledge on sleep hygiene, and established sleeping habits all lead to great overall sleep quality. Our platform empowers users to improve their sleep and well-being by tracking sleep and wake times, encouraging daily journaling, and providing dedicated resource pages and infographics backed by research.</p>
+              <p className='col-xs-5 col-md-12 m-4 p-6'>
+                Improving sleep quality is not easy, but with sleep&see, you can achieve the deep, restorative sleep your body needs to wake up feeling refreshed and rejuvenated. Take control of your sleep by exploring the other pages on our webpage!</p>
             </div>
             <div className="col-md-5 col-xs-12 d-flex justify-content-center">
                 <img className="aboutUs-image" src={aboutUs_image} alt='team color'></img>
@@ -45,7 +50,6 @@ const About = () => {
             </div>
           </section>
         </div>
-        <Footer />
       </main>
       <Footer />
     </>

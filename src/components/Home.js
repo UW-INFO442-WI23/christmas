@@ -12,7 +12,7 @@ function Home() {
                             <h1>welcome to sleep&see:</h1>
                             <p className='intro'><span>a site made to record </span><br></br><span>and visualize your sleep</span></p>
                             <a href="/login">
-                                <button className="link-button">try it out</button>
+                                <button className="link-button">let's start</button>
                             </a>
                         </div>
                         <div className="content col-xs-6 col-md-5 m-4 d-flex justify-content-center">
@@ -23,7 +23,7 @@ function Home() {
                         </div>
                         <div className="col-xs-4 col-md-4 mt-5">
                             <h1>your sleep is important</h1>
-                            <p className='intro mt-5'>see graphs and notes across your week or month on when you hit the hay</p>
+                            <p className='intro mt-5'>see notes and weekly averages of time slept across the month on when you hit the hay</p>
                             <a href="/login">
                                 <button className="link-button">try it out</button>
                             </a>
@@ -33,10 +33,10 @@ function Home() {
                                 <h1>be a dreamer</h1>
                             </div>
                             <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
-                                <p className='last-message'>research says that 35% of students stay up past 3 AM at least once a week which affects long-term focus, cognitive ability, and health </p>
+                                <p className='last-message'>We all need sleep, but how do we make sure we get enough? Research states that 35% of students stay up past 3 A.M. at least once a week, which affects long-term focus, cognitive ability, and health. Sleep also influences stress levels and academic performance, being interconnected with our physical and mental well-being. </p>
                             </div>
                             <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
-                                <p className='last-message'>we aim to inform students on the importance of good sleep health and habits to better academic performance and quality of life overall</p>
+                                <p className='last-message'>sleep&see is a small project aimed to track details about your sleep and record notes whenever you feel like it. Go at your own pace in learning more about your sleep habits across weeks and months of documenting your hours of sleep. Through research pages and resources, we hope to offer guided and comprehensive information for students like us to practice good sleep hygiene and improve our sleep quality!</p>
                             </div>
                         </div>        
                     </section>
