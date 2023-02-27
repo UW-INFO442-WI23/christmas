@@ -153,6 +153,34 @@ h1, h2{
 p{
     color: white;
 }
+li {
+  color: white;
+  font-size: 24px;
+}
+
+#info {
+  border-collapse: collapse;
+  width: 100%;
+}
+#info td, #info th {
+  /*border: 2px solid #ddd;*/
+  padding: 8px;
+  color:black;
+  
+}
+#info tr:nth-child(odd){background-color: #8e7ede;}
+#info tr:nth-child(even){background-color: #7a83e7;}
+
+/*#info tr:hover {background-color: #ddd;}*/
+
+#info th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #3e0a54;
+  color: white;
+}
+
 .link-button{
     width: 120px;
     height: 40px;

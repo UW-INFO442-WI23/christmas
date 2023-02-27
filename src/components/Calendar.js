@@ -203,7 +203,7 @@ export function WeekRecap(props) {
                 <option value='0'>Select a Week</option>
                 {displaySelectGroup}
             </select>
-            <p className="p-3 mb-2 text-dark average-num-sleep">Average Number of Sleep: {props.weekRange}</p>
+            <p className="p-3 mb-2 text-dark average-num-sleep">Average Hours of Sleep: {props.weekRange}</p>
             <p className='week-message'>{weekmessage}</p>
         </div>
     );
