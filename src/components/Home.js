@@ -1,3 +1,5 @@
+/* This file contains the code for home page */
+'use strict';
 import React from 'react';
 import graph_image from "../img/graph.png"
 import calendar_image from "../img/calendar.png"

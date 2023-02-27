@@ -1,3 +1,5 @@
+/* This file contains the code for resources pages  */
+'use strict';
 import React from 'react';
 import sleep_image1 from "../img/sleep-image1.jpg"
 import sleep_image2 from "../img/sleep-image2.jpg"

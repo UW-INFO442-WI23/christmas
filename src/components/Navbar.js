@@ -1,3 +1,5 @@
+/* This file contains the code for Navigation */
+'use strict';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from "../img/logo.png"
@@ -5,8 +7,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { LogOut } from './Logout';
 function Navbar(props) {
+    // responsive nav
     const [navOpen, setNavOpen] = useState(false)
-
     return (
         <nav className='navbar'>
                 <div className="navbar">

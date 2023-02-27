@@ -1,12 +1,13 @@
+/* This file contains the code for log out  */
+'use strict';
 import React from 'react';
-
 import {getAuth, signOut} from 'firebase/auth';
 import {useNavigate} from 'react-router-dom';
 
 export function LogOut() {
   const navigate = useNavigate();
   const auth = getAuth();
-
+  // sign out and navigate
   const signout = () => {
     signOut(auth).then(() => {
       return navigate('/');

@@ -1,10 +1,13 @@
+'use strict';
+/* This file contains the code for about us page. */
+
 import React from 'react';
 import Footer from "./Footer";
 import aboutUs_image from "../img/about_us.png"
 import "../index.css";
 import { CardContainer } from './CardContainer';
 
-
+/* Introducing our team such as name and bio */
 const memberInfo = [
   {name: 'Claudine',
    desc: 'Senior in Informatics, focusing on Human-Computer Interaction. Loves alpacas, pandas, and every other derpy animal. Spends free time playing VALORANT, Rust, Genshin Impact, and more!'},
@@ -15,7 +18,7 @@ const memberInfo = [
   {name: 'John',
    desc: "Second-year undergraduate and senior in Informatics. Aspiring UI/UX researcher and designer, but thoroughly enjoys rocking out on a drum set, freestyle dancing, drawing, and cooking in his free time!"},
   {name: 'Takumi',
-   desc: "insert text here"}
+   desc: "Senior in Informatics"}
 ]
 
 const About = () => {

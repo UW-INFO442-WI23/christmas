@@ -1,3 +1,6 @@
+/* This file contains the code for footer*/
+
+'use strict';
 import React from 'react';
 
 function Footer() {

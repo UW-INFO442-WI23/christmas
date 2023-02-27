@@ -1,3 +1,7 @@
+/* This file contains the code for "don't sleep on the facts" 
+Sleep health has many dimensions that contribute to one's sleep quality.*/
+
+'use strict';
 import React from 'react';
 import sleep_image1 from "../img/sleep-image1.jpg";
 import Footer from "./Footer";

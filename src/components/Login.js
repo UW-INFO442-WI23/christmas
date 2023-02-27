@@ -1,3 +1,5 @@
+/* This file contains the code login page */
+'use strict';
 import React from 'react';
 import { redirect } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
@@ -6,6 +8,7 @@ import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import Footer from "./Footer";
 import loginImage from "../img/login-image.png"
 
+// using the firebase UI config
 const firebaseUIConfig = {
     signInOptions: [
         {provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true},
@@ -19,6 +22,7 @@ const firebaseUIConfig = {
         }
     }
 }
+// after loggin in, redirect
 function Login(props) {
     const auth = getAuth();
     if(props.loggedIn) {

@@ -1,5 +1,4 @@
 'use strict';
-
 import React, { useState, useEffect } from 'react';
 import blankData from '../data/blank-user.json'
 import Footer from "./Footer";
@@ -124,7 +123,9 @@ function Calendar(props) {
 
 // function that creates Weekly Summary
 export function WeekRecap(props) {
-    let weekmessage = [];
+    // setting the weekly message"
+    let weeklymessage = [];
+    // these messages for good amount of sleep
     const goodAmount = ["Sleeping like a baby never looked so good!", 
                         "Get your zzz's and wake up with ease!", 
                         "Sweet dreams are made of good sleep!", 
@@ -136,6 +137,7 @@ export function WeekRecap(props) {
                         "Say goodbye to dark circles and hello to sweet dreams!",
                         "Don't let insomnia be your arch-nemesis; conquer it with a good night's sleep!"
                     ]
+    // these messages for bad amount of sleep
     const badAmount = ["Without sleep, you're just a zombie in disguise!",
                        "Sleep deprivation is like a bad hair day for your brain!",
                        "No beauty sleep, no beauty glow!",
@@ -147,11 +149,12 @@ export function WeekRecap(props) {
                        "Sleeping is like hitting the save button for your brain, don't forget to save!",
                        "If you're feeling like a walking dead, you might need some shut-eye!"
                     ]
-
+    // if weekly average is greater than or equal to 7 hours, it will display a message from a good amount of sleep 
     if(props.weekRange >= 7){
-        weekmessage.push(goodAmount[Math.floor(Math.random() * 10)]);
+        weeklymessage.push(goodAmount[Math.floor(Math.random() * 10)]);
+    // if weekly average is greater than 0 and less than 7 hours, it will display a message from a bad amount of sleep 
     }else if (props.weekRange > 0 && props.weekRange < 7 ) {
-        weekmessage.push(badAmount[Math.floor(Math.random() * 10)])
+        weeklymessage.push(badAmount[Math.floor(Math.random() * 10)])
     }
     // Created an Array of data
     const selectWeek = {}
@@ -204,7 +207,7 @@ export function WeekRecap(props) {
                 {displaySelectGroup}
             </select>
             <p className="p-3 mb-2 text-dark average-num-sleep">Average Hours of Sleep: {props.weekRange}</p>
-            <p className='week-message'>{weekmessage}</p>
+            <p className='week-message'>{weeklymessage}</p>
         </div>
     );
 }

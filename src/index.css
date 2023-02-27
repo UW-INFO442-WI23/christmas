@@ -6,6 +6,7 @@ body {
   height: inherit;
   background-color: #181616;
 }
+/* Home */
 .main-container{
   display: flex;
   flex: 1;
@@ -20,9 +21,20 @@ body {
     width: 50px;
     height: 50px;
 }
-/* nav {
-  background-color: #E6EDF0;
-} */
+.graph-image{
+    width: 70%;
+}
+.intro{
+    font-size: 32px;
+}
+.calendar-image{
+    width: 50%;
+}
+.last-message{
+    text-align: center;
+    font-size: 24px;
+}
+/* Navigation */
 .nav{
     position:fixed;
     z-index: 2;
@@ -121,7 +133,7 @@ ul.nav-links li{
 ul.nav-links li a{
     text-decoration: none;
     color: #fff;
-    font-size: 3em;
+    font-size: 2em;
     position: relative;
     top: 0;
     transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -136,6 +148,7 @@ ul.nav-links li a{
     background: #18181c;
     margin: 0 auto;
 }
+/* media quary */
 @media(max-width: 900px){
     ul.nav-lins li a{
         font-size: 5em;
@@ -157,13 +170,41 @@ li {
   color: white;
   font-size: 24px;
 }
+/* next size - tablet */
+@media (min-width: 768px) {
+    .page-container {
+      background-image: url("./img/bg-xs.png");
+    }
+}
+  
+/* next size - tablet landscape and it covers desktop */
+@media (min-width: 1024px) {
+    .miracle {
+      background-image: url("./img/bg-md.png");
+    }
+}
+  
+/* next size - larger desktops */
+@media (min-width: 1280px) {
+    .page-container {
+      background-image: url("./img/bg-lg.png");
+    }
+}
 
+/* About us */
+.aboutUs-image{
+    width: 70%;
+}
+#about-card {
+    max-width: 400px;
+    max-height: 800px;
+    background-color: #9E91BF;
+}
 #info {
   border-collapse: collapse;
   width: 100%;
 }
 #info td, #info th {
-  /*border: 2px solid #ddd;*/
   padding: 8px;
   color:black;
   
@@ -190,36 +231,14 @@ li {
     border-radius: 8px;
     
 }
-/*about us page*/
-.aboutUs-image{
-    width: 70%;
-}
-/* home page */
-.graph-image{
-    width: 70%;
-}
-.intro{
-    font-size: 32px;
-}
-.calendar-image{
-    width: 50%;
-}
-.last-message{
-    text-align: center;
-    font-size: 24px;
-}
-/* resources page */
+
+/* Resources page */
 .sleep-image{
     width: 70%;
     border-radius: 8px;
 }
 
-/* individual resources page */
-.back_arrow {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 2rem;
-}
+/* Individual resources page */
 .content-footer{
     margin-top: 40px;
     padding-bottom: 40px;
@@ -233,72 +252,50 @@ li {
     background-size: cover;
     background-image: url("./img/bg-xs.png");
   }
-/* next size - tablet */
-@media (min-width: 768px) {
-    .page-container {
-      background-image: url("./img/bg-xs.png");
-    }
-  }
-  
-  /* next size - tablet landscape and it covers desktop */
-  @media (min-width: 1024px) {
-    .miracle {
-      background-image: url("./img/bg-md.png");
-    }
-  }
-  
-  /* next size - larger desktops */
-  @media (min-width: 1280px) {
-    .page-container {
-      background-image: url("./img/bg-lg.png");
-    }
-  }
-  .login-header{
+
+/* Log in */
+.login-header{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-  }
-  .login-image-sec{
+}
+.login-image-sec{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .login-image{
-    height: 500px;
-    width: 500px;
-  }
-  .calendar-header{
+}
+.login-image{
+    height: 70%;
+    width: 70%;
+}
+
+/* Calendar */
+.calendar-header{
     color: #000;
     margin-bottom: 3rem;
-  }
-  .calendar-month{
+}
+.calendar-month{
     font-size: 1.5rem;
-  }
-  .calendar-days{
+}
+.calendar-days{
     margin-top: 2rem;
-  }
-  .summary-header{
+}
+.summary-header{
     color: #000;
     margin-bottom: 2rem;
     margin-top: 4rem;
-  }
-  .average-num-sleep{
+}
+.average-num-sleep{
     font-size: 1.2rem;
-  }
- .week-message{
+}
+.week-message{
     color: #000;
     margin-bottom: 2rem;
     font-weight: bold;
     font-size: 1.2rem;
- }
- .rocket-image{
+}
+.rocket-image{
     width: 160px;
     height: 100px;
- }
-
- #about-card {
-  max-width: 400px;
-  max-height: 800px;
-  background-color: #9E91BF;
- }
+}

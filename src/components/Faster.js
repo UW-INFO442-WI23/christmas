@@ -1,3 +1,6 @@
+/* This file contains the code for "get cozy and comfy" in resources page */
+
+'use strict';
 import React from 'react';
 import sleep_image2 from "../img/sleep-image2.jpg"
 import Footer from "./Footer";
@@ -8,7 +11,7 @@ function Faster() {
                 <div className="container">
                     <section className="row header-content">
                         <div className="col-xs-12 col-md-12 mt-5">
-                            <h1>Sleep Faster?</h1>
+                            <h1>get cozy and comfy?</h1>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
                             <img className="sleep-image mt-5" src={sleep_image2} alt='sleep2'></img>

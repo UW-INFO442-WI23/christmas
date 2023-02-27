@@ -1,3 +1,5 @@
+/* This file contains the code for the card of our team in about us page */
+'use strict';
 import React from 'react';
 
 export function Card(props) {
