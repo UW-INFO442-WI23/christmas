@@ -14,7 +14,7 @@ function Faster() {
                             <h1>get cozy and comfy?</h1>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
-                            <img className="sleep-image mt-5" src={sleep_image2} alt='sleep2'></img>
+                            <img className="individual-sleep-image mt-5" src={sleep_image2} alt='sleep2'></img>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-5">
                             <h2>Helpful Links</h2>

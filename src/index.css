@@ -237,7 +237,6 @@ body {
       width: 70%;
       border-radius: 8px;
   }
-  
   /* Individual resources page */
   .content-footer{
       margin-top: 40px;
@@ -251,7 +250,11 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
       background-image: url("./img/bg-xs.png");
-    }
+  }
+  .individual-sleep-image{
+    width: 50%;
+    border-radius: 8px;
+  }
   /* next size - tablet */
   @media (min-width: 768px) {
       .page-container {
