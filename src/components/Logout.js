@@ -3,24 +3,33 @@
 import React from 'react';
 import {getAuth, signOut} from 'firebase/auth';
 import {useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
 
-export function LogOut() {
+export function LogOut(props) {
+  const { loggedIn } = props;
   const navigate = useNavigate();
   const auth = getAuth();
   // sign out and navigate
-  const signout = () => {
-    signOut(auth).then(() => {
-      return navigate('/');
-    }).catch((error) => {});
-  };
+
+  useEffect(() => {
+    const signout = () => {
+      signOut(auth).then(() => {
+        return window.location.href = "/";
+  
+      }).catch((error) => {});
+    }
+    if(!loggedIn) {
+      return window.location.href = "/";
+    } else {
+      console.log(loggedIn, 'useEffect')
+      console.log(signout, 'useEffect')
+      signout();  
+      return window.location.href = "/";
+    };
+  }, [loggedIn])
 
   return (
     <div className="container">
-        <section className="row header-content align-items-center">
-            <div className='logout'>
-                <button onClick={signout}>Logout</button>
-            </div>
-        </section>
     </div>
   );
 }
