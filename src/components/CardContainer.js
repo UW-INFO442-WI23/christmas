@@ -12,10 +12,13 @@ export function CardContainer(props) {
 
     return (
         <div className="container">
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-md-auto col-xl-auto d-flex">
                     {cards}
                 </div>
+            </div> */}
+            <div className='row d-flex'>
+                {cards}
             </div>
         </div>
 
