@@ -16,3 +16,9 @@
 * Log-in to store account information
 * External links to resources from journals, links, and videos
 <p>
+
+## Persona
+![Persona](src/img/persona-1.png)
+![Persona](src/img/persona-2.png)
+
+## Testing Protocol
