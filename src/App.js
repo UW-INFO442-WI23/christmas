@@ -119,7 +119,7 @@ function App() {
 							<Route path='/faster' element={<Faster />} />
 							<Route path='/better' element={<Better />} />
 						<Route path='/login' element={<Login loggedIn={loggedIn}/>} />
-				<Route path='/logout' element={<LogOut />} />
+				<Route path='/logout' element={<LogOut loggedIn={loggedIn}/>} />
 					</Routes>
 			</div>
 		</div>
