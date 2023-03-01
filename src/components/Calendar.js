@@ -104,13 +104,13 @@ function Calendar(props) {
                     </div>
                 </div>
                 <div className="row calendar-days">
-                    <div className="col">Sunday</div>
-                    <div className="col">Monday</div>
-                    <div className="col">Tuesday</div>
-                    <div className="col">Wednesday</div>
-                    <div className="col">Thursday</div>
-                    <div className="col">Friday</div>
-                    <div className="col">Saturday</div>
+                    <div className="col">Sun</div>
+                    <div className="col">Mon</div>
+                    <div className="col">Tues</div>
+                    <div className="col">Wed</div>
+                    <div className="col">Thu</div>
+                    <div className="col">Fri</div>
+                    <div className="col">Sat</div>
                 </div>
                     {handleCalenderWeek}
                     <div><h1 className='summary-header'>Weekly Summary</h1></div>
@@ -278,7 +278,7 @@ export function WeekCard(props) {
         return data.week === props.weekNum;
     })
     checkWeekData(filterWeek);
-    const displayWeek = filterWeek.map((data) => <DayCard loggedIn={props.loggedIn} setWeekRange={props.setWeekRange} user={props.user} userData={props.userData} dayInfo={data} key={data.date + data.dayofWeek + data.month}/>)
+    const displayWeek = filterWeek.map((data, i) => <DayCard loggedIn={props.loggedIn} setWeekRange={props.setWeekRange} user={props.user} userData={props.userData} dayInfo={data} key={i + data.date + "" + data.dayofWeek + "" + data.month}/>)
     return (
         <div className="row">
                 {displayWeek}
@@ -312,6 +312,8 @@ export function DayCard(props) {
     const [storedNotes, setStoredNotes] = useState([""]); // Users Notes Array UseState
     const [storedSleep, setStoredSleep] = useState('')
     const [storedWakeUp, setStoredWakeUp] = useState('')
+    const [notesWarning, setNotesWarning] = useState(false)
+    const [timeWarning, setTimeWarning] = useState(false)
     const dayInfo = props.dayInfo
 
     useEffect(() => {
@@ -325,8 +327,8 @@ export function DayCard(props) {
                 }
             }) 
             if(userDateData !== undefined) {    
-                setStoredSleep(userDateData.TimeSleep);
-                setStoredWakeUp(userDateData.TimeWakeUp);
+                setStoredSleep(userDateData.TimeSleep || "");
+                setStoredWakeUp(userDateData.TimeWakeUp || "");
                 setStoredNotes(userDateData.Notes || [""]);
             }
         }  
@@ -392,20 +394,28 @@ export function DayCard(props) {
         }
     }
 
-    const handleSubmitNote = () => {    
-        setStoredNotes([...storedNotes, addNote]);
-        checkDataExist();
-        setAddNote('');
+    const handleSubmitNote = () => {
+        if (addNote !== "") {
+            setStoredNotes([...storedNotes, addNote]);
+            checkDataExist();
+            setAddNote('');
+        } else {
+            setNotesWarning(true);
+        }
     }
 
     const handleSubmitTime = () => {
-        props.setWeekRange(0);
-        checkDataExist();
+        if (storedSleep !== "" && storedWakeUp !== "") {
+            props.setWeekRange(0);
+            checkDataExist();
+        } else {
+            setTimeWarning(true)
+        }
     }
 
     // have blank card if date doesn't exist
     if (dayInfo.date === '') {
-        return <div className='col'></div>
+        return <div className='col display-col'></div>
     }
     let highlightToday = 'btn';
     if (dayInfo.date === grabPresentDate().thisDate.getDate() &&
@@ -435,16 +445,23 @@ export function DayCard(props) {
     }
 
     if(Object.keys(dateNotesData).length !== 0) {
+        const dateNoteList = dateNotesData.Notes.filter((note, i) => {
+            return note !== '';
+        })
         if(dateNotesData.TimeSleep !== "" && dateNotesData.TimeWakeUp !== "") {
-            highlightToday = highlightToday + " bg-secondary text-white"
-        }
+            if (dayInfo.date === grabPresentDate().thisDate.getDate() && dayInfo.month === grabPresentDate().thisMonthNumber) {
+                highlightToday = highlightToday + " bg-primary text-white"
+            } else {
+                highlightToday = highlightToday + " bg-secondary text-white"
+            }
+        } 
     }
 
     const monthDisplayText = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const dayofWeekDisplay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     return (
-        <div className='col'>
+        <div className='col display-col'>
             <a className={highlightToday} data-bs-toggle="offcanvas" href={'#date-' + dayInfo.date + '-' + dayInfo.month} role="button" aria-controls="offcanvasExample">
                 {dayInfo.date}
             </a>
@@ -460,6 +477,16 @@ export function DayCard(props) {
                     <p className='text-dark'>Time Wake Up</p>
                     <input placeholder='Time Woke Up' type="time" value={storedWakeUp} onChange={handleWakeUpChange} className="form-control mb-3" aria-label="Text input with dropdown button" />
                     <button className="btn btn-outline-secondary mb-3" type="button" onClick={handleSubmitTime}>Update Time</button>
+                    {/* Check Time Upadte */}
+                    {timeWarning && <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Warning: </strong> Time Input can't be empty
+                        <button type="button" className="btn btn-outline-warning" onClick={() => setTimeWarning(false)}><strong>X</strong></button>
+                    </div> }
+                    {/* Check Notes Update */}
+                    {notesWarning && <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Warning: </strong> Value can't be empty 
+                        <button type="button" className="btn btn-outline-warning" onClick={() => setNotesWarning(false)}><strong>X</strong></button>
+                    </div> }
                     <ul className="list-group">
                         {dateNoteList}
                         <li className="list-group-item">
