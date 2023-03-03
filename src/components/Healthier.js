@@ -22,27 +22,31 @@ function Healtheir() {
                         <div className="col-xs-12 col-md-12 mt-5">
                             <h1>What's the big deal?</h1>
                             <p>Why does it matter?</p>
-                            <table id="info">
-                                <tr>
-                                    <th>Consequences of poor sleep health</th>
-                                    <th>Benefits of improved sleep health</th>
-                                </tr>
-                                <tr>
-                                    <td>Poor health outcomes such as high stress, fatigue, difficulty concentrating</td>
-                                    <td>Consistent sleep patterns that lead to little or no problem with sleep or daytime alertness</td>
-                                </tr>
-                                <tr>
-                                    <td>Worse task performance during high working-memory loads and impaired cognitive function</td>
-                                    <td>Increased memory consolidation where information and knowledge can be adapted and retained</td>
-                                </tr>
-                                <tr>
-                                    <td>Lower neuronal responses and resources to perform tasks over longer periods of time</td>
-                                    <td>Stronger neuron response and cognitive activations for tasks</td>
-                                </tr>
-                                <tr>
-                                    <td>Associated with a hyper-reactive brain state</td>
-                                    <td>Restores stamina and function of the body and mind</td>
-                                </tr>
+                            <table className="info">
+                                <thead>
+                                    <tr>
+                                        <th>Consequences of poor sleep health</th>
+                                        <th>Benefits of improved sleep health</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Poor health outcomes such as high stress, fatigue, difficulty concentrating</td>
+                                        <td>Consistent sleep patterns that lead to little or no problem with sleep or daytime alertness</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Worse task performance during high working-memory loads and impaired cognitive function</td>
+                                        <td>Increased memory consolidation where information and knowledge can be adapted and retained</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lower neuronal responses and resources to perform tasks over longer periods of time</td>
+                                        <td>Stronger neuron response and cognitive activations for tasks</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Associated with a hyper-reactive brain state</td>
+                                        <td>Restores stamina and function of the body and mind</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
