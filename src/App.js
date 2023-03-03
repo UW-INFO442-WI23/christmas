@@ -112,6 +112,7 @@ function App() {
 					{/* Routes to each corresponding page */}
 				<Routes>
 						<Route path='/' element={<Home />} />
+                        <Route path='/home' element={<Home />} />
 				<Route path='/calendar' element={<Calendar handleNewUser={handleNewUser} importData={userData} user={user} loggedIn={loggedIn}/> }/>
 						<Route path='/about' element={<About />} />
 						<Route path='/resources' element={<Resources />} />
