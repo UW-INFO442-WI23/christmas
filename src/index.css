@@ -201,9 +201,9 @@ ul.nav-links li a{
 .aboutUs-image{
     width: 70%;
 }
-#about-card {
-    max-width: 400px;
-    max-height: 800px;
+.about-card {
+    max-width: 100%;
+    max-height: 70%;
     background-color: #9E91BF;
 }
 .info {
