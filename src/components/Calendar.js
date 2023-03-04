@@ -314,6 +314,7 @@ export function DayCard(props) {
     const [storedWakeUp, setStoredWakeUp] = useState('')
     const [notesWarning, setNotesWarning] = useState(false)
     const [timeWarning, setTimeWarning] = useState(false)
+    const [successUpdate, setSuccessUpdate] = useState(false);
     const dayInfo = props.dayInfo
 
     useEffect(() => {
@@ -406,6 +407,7 @@ export function DayCard(props) {
 
     const handleSubmitTime = () => {
         if (storedSleep !== "" && storedWakeUp !== "") {
+            setSuccessUpdate(true);
             props.setWeekRange(0);
             checkDataExist();
         } else {
@@ -477,15 +479,20 @@ export function DayCard(props) {
                     <p className='text-dark'>Time Wake Up</p>
                     <input placeholder='Time Woke Up' type="time" value={storedWakeUp} onChange={handleWakeUpChange} className="form-control mb-3" aria-label="Text input with dropdown button" />
                     <button className="btn btn-outline-secondary mb-3" type="button" onClick={handleSubmitTime}>Update Time</button>
+                    {/* Display Successful Upadte */}
+                    {successUpdate && <div className="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success! </strong> Time has been updated!
+                        <button type="button" className="ms-1 btn btn-outline-success" onClick={() => setSuccessUpdate(false)}><strong>X</strong></button>
+                    </div> }
                     {/* Check Time Upadte */}
                     {timeWarning && <div className="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Warning: </strong> Time Input can't be empty
-                        <button type="button" className="btn btn-outline-warning" onClick={() => setTimeWarning(false)}><strong>X</strong></button>
+                        <button type="button" className="ms-1 btn btn-outline-warning" onClick={() => setTimeWarning(false)}><strong>X</strong></button>
                     </div> }
                     {/* Check Notes Update */}
                     {notesWarning && <div className="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Warning: </strong> Value can't be empty 
-                        <button type="button" className="btn btn-outline-warning" onClick={() => setNotesWarning(false)}><strong>X</strong></button>
+                        <button type="button" className="ms-1 btn btn-outline-warning" onClick={() => setNotesWarning(false)}><strong>X</strong></button>
                     </div> }
                     <ul className="list-group">
                         {dateNoteList}

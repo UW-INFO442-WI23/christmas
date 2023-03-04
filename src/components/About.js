@@ -12,7 +12,7 @@ const memberInfo = [
   {name: 'Claudine',
    desc: 'Senior in Informatics, focusing on Human-Computer Interaction. Loves alpacas, pandas, and every other derpy animal. Spends free time playing VALORANT, Rust, Genshin Impact, and more!'},
   {name: 'Aaron',
-   desc: 'Senior in Informatics, focusing on Human-Computer Interaction. Loves alpacas, pandas, and every other derpy animal. Spends free time playing VALORANT, Rust, Genshin Impact, and more!'},
+   desc: 'Senior in Informatics, who`s wants to be a software developer. Likes hanging out with friends, listening to music, and relaxing. Spends free time playing Nintendo Games, League of Legends, and more!'},
   {name: 'Brian',
    desc: 'Senior in Informatics, focusing on Human-Computer Interaction. Loves alpacas, pandas, and every other derpy animal. Spends free time playing VALORANT, Rust, Genshin Impact, and more!'},
   {name: 'John',
