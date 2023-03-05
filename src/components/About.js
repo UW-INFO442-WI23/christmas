@@ -14,7 +14,7 @@ const memberInfo = [
   {name: 'Aaron',
    desc: 'Senior in Informatics, who`s wants to be a software developer. Likes hanging out with friends, listening to music, and relaxing. Spends free time playing Nintendo Games, League of Legends, and more!'},
   {name: 'Brian',
-   desc: 'Senior in Informatics, has the goal of becoming a UI/UX Researcher. Always listening to 21 Savage, playing basketball, and trying to lift the heaviest weight. Gaming life revolves around League of Legends, NBA 2k, and Madden!'},
+   desc: 'Senior in Informatics, has the goal to become a UI/UX Researcher. Always listening to 21 Savage, playing basketball, and trying to lift the heaviest weight. Gaming life revolves around League of Legends, NBA 2k, and Madden!'},
   {name: 'John',
    desc: "Second-year undergraduate and senior in Informatics. Aspiring UI/UX researcher and designer, but thoroughly enjoys rocking out on a drum set, freestyle dancing, drawing, and cooking in his free time!"},
   {name: 'Takumi',
