@@ -18,7 +18,7 @@ const memberInfo = [
   {name: 'John',
    desc: "Second-year undergraduate and senior in Informatics. Aspiring UI/UX researcher and designer, but thoroughly enjoys rocking out on a drum set, freestyle dancing, drawing, and cooking in his free time!"},
   {name: 'Takumi',
-   desc: "Senior in Informatics, focusing on Human-Computer Interaction. Loves alpacas, pandas, and every other derpy animal. Spends free time playing VALORANT, Rust, Genshin Impact, and more!"}
+   desc: "Senior in Informatics, loves cycling, anime, and novels. Enjoys spending time with his friends, trying out new restaurants, and hitting up clubs. When it comes to music, their tastes are diverse, ranging from pop and EDM to classic rock bands like AC/DC and Led Zeppelin. "}
 ]
 
 const About = () => {
