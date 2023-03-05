@@ -14,13 +14,16 @@ function Faster() {
                             <h1>Waking up in the middle of the night?</h1>
                         </div>
                         <div className="col-xs-12 col-md-12 mt-5">
-                            <p>Or maybe feeling tired despite getting a decent chunk of sleep? Your mood, body, and sleep environment are just important as how much sleep you're getting every night.</p>
+                            <p>Or maybe feeling tired despite getting a decent chunk of sleep? Let's talk about how deep sleep works.</p>
+                            <p>The sleep cycle can be separated into two parts, NREM (non rapid eye movement) and REM (rapid eye movement) sleep, which goes through stages throughout the night. </p>
+                            <p>Your mood, body, and sleep environment are just important as how much sleep you're getting every night. Your room should be dim with indirect lighting, being both quiet and attractive to sleep in. A cooler ambient temperature also lower your heart rate which leaves REM sleep uninterrupted (Okamoto-Mizuno & Mizuno, 2012).</p>
                         </div>
                         <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
                             <p className='intro'>Give some of these relaxation methods a try!</p>
                         </div>
                         <ul>
                             <li>Diaphragmatic breathing:</li>
+                            
                             <li></li>
                             <li></li>
                         </ul>
