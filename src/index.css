@@ -8,6 +8,7 @@ body{
 }
 h1, h2{
   color: white;
+  padding-top: 24px;
 }
 p{
   color: white;
@@ -264,8 +265,9 @@ ul.nav-links li a{
     background-image: url("./img/bg-xs.png");
 }
 .individual-sleep-image{
-  width: 50%;
-  border-radius: 8px;
+  width: 75%;
+  border-radius: 16px;
+  margin: 24px;
 }
 /* next size - tablet */
 @media (min-width: 768px) {

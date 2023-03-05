@@ -1,7 +1,7 @@
 /* This file contains the code for "dream big, sleep better" */
 'use strict';
 import React from 'react';
-import sleep_image3 from "../img/sleep-image3.jpg"
+import sleep_image4 from "../img/sleep-image3.jpg"
 import Footer from "./Footer";
 function Better() {
     return (
@@ -13,7 +13,7 @@ function Better() {
                             <h1>Sleep Better (Quality of sleep)?</h1>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
-                            <img className="individual-sleep-image mt-5" src={sleep_image3} alt='sleep2'></img>
+                            <img className="individual-sleep-image mt-5" src={sleep_image4} alt='sleep2'></img>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-5">
                             <h2>Helpful Links</h2>
