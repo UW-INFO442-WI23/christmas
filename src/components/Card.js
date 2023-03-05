@@ -12,9 +12,9 @@ export function Card(props) {
                         <div className="col-sm-auto col-xl-12">
                             <img className="img-thumbnail img-fluid" src={`../img/${props.name}.png`} alt={props.name}></img>
                         </div>
-                        <div className="col-sm col-xl-12">
+                        <div className="col-sm col-xl-12 m-2 p-4">
                             <h2 className="card-title">{props.name}</h2>
-                            <p className="card-text m-3 p-3">{props.desc}</p>
+                            <p className="card-text">{props.desc}</p>
                         </div>
                     </div>
                    </div>
