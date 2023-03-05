@@ -15,7 +15,7 @@ function Resources() {
                             <h1>Resources</h1>
                         </div>
                         <div className="col-xs-4 col-md-6 mt-8">
-                            <img className="sleep-image mt-5" src={sleep_image1} alt='sleep1'></img>
+                            <img className="sleep-image mt-5" src={sleep_image1} alt='Tired woman with head on desk'></img>
                         </div>
                         <div className="col-xs-4 col-md-6 mt-5">
                             <h2>don't sleep on the facts</h2>
@@ -25,7 +25,7 @@ function Resources() {
                             </a>
                         </div>
                         <div className="col-xs-4 col-md-6 mt-8">
-                            <img className="sleep-image mt-5" src={sleep_image2} alt='sleep2'></img>
+                            <img className="sleep-image mt-5" src={sleep_image2} alt='Alarm black against pink and green background'></img>
                         </div>
                         <div className="col-xs-4 col-md-6 mt-5">
                             <h2>get cozy and comfy</h2>
@@ -35,13 +35,13 @@ function Resources() {
                             </a>
                         </div>
                         <div className="col-xs-4 col-md-6 mt-8">
-                            <img className="sleep-image mt-5" src={sleep_image3} alt='sleep3'></img>
+                            <img className="sleep-image mt-5" src={sleep_image3} alt='Man resting on hammock smiling'></img>
                         </div>
                         <div className="col-xs-4 col-md-6 mt-5">
                             <h2>dream big, sleep better</h2>
-                            <p className='mt-2'><strong>sleep&see</strong> is a small project aimed to track details about your sleep and record notes whenever you feel like it. Go at your own pace in learning more about your sleep habits across weeks and months of documenting your hours of sleep.</p>
+                            <p className='mt-2'>Still wanting more? We got a page full of quick articles and YouTube videos that we found interesting covering sleep-related topics.</p>
                             <a href="/better">
-                                <button className="link-button">Try Now</button>
+                                <button className="link-button">Resources</button>
                             </a>
                         </div>
                     </section>

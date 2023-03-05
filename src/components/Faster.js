@@ -11,17 +11,25 @@ function Faster() {
                 <div className="container">
                     <section className="row header-content">
                         <div className="col-xs-12 col-md-12 mt-5">
-                            <h1>get cozy and comfy?</h1>
+                            <h1>Waking up in the middle of the night?</h1>
                         </div>
-                        <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
+                        <div className="col-xs-12 col-md-12 mt-5">
+                            <p>Or maybe feeling tired despite getting a decent chunk of sleep? Your mood, body, and sleep environment are just important as how much sleep you're getting every night.</p>
+                        </div>
+                        <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
+                            <p className='intro'>Give some of these relaxation methods a try!</p>
+                        </div>
+                        <ul>
+                            <li>Diaphragmatic breathing:</li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <div className="col-xs-12 col-md-12 mt-8 d-flex justify-content-center">
                             <img className="individual-sleep-image mt-5" src={sleep_image2} alt='sleep2'></img>
                         </div>
-                        <div className="col-xs-4 col-md-12 mt-5">
+                        <div className="col-xs-12 col-md-12 mt-5">
                             <h2>Helpful Links</h2>
                             <div className='mt-4'>
-                                <a href="https://www.healthline.com/health/healthy-sleep/fall-asleep-fast">
-                                    <p>How to Fall Asleep in 10, 60, or 120 Seconds</p>
-                                </a>
                                 <a href="https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast">
                                     <p>How to Fall Asleep Fast</p>
                                 </a>

@@ -3,9 +3,9 @@ Sleep health has many dimensions that contribute to one's sleep quality.*/
 
 'use strict';
 import React from 'react';
-import sleep_image1 from "../img/sleep-image1.jpg";
+import sleep_image1 from "../img/info-page-image.png";
 import Footer from "./Footer";
-function Healtheir() {
+function Healthier() {
     return (
         <>
             <main>
@@ -58,7 +58,7 @@ function Healtheir() {
                         <p>In summary, taking steps to improve our sleep quality is an investment in our overall health and wellbeing. By prioritizing sleep, we can improve our academic performance, cognitive abilities, and quality of life, leading to a happier, healthier, and more productive life!</p>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center">
-                            <img className="individual-sleep-image mt-5" src={sleep_image1} alt='sleep1'></img>
+                            <img className="individual-sleep-image mt-5" src={sleep_image1} alt='Sleeping dog with glasses'></img>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-5">
                         <a href="https://docs.google.com/document/d/1FJ_o1PxaBvswqFaAFB2zztBmtLEb3RNsFuUcW87-Kyk/edit?usp=sharing">
@@ -81,4 +81,4 @@ function Healtheir() {
     );
 }
 
-export default Healtheir;
+export default Healthier;

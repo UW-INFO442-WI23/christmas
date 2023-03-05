@@ -36,17 +36,17 @@ function Navbar(props) {
                             <div className="nav-item-wrapper"></div>
                         </li>
                         <li className="nav-item">
-                            <Link to="/calendar" onClick={() => setNavOpen(!navOpen)}style={{
+                            <Link to="/about" onClick={() => setNavOpen(!navOpen)}style={{
                             top: navOpen ? "0" : "120px",
                             transitionDelay: navOpen ? "0.8s" : "0s",
-                        }}>calendar</Link>
+                        }}>about</Link>
                             <div className="nav-item-wrapper"></div>
                         </li>
                         <li className="nav-item">
-                            <Link to="/about" onClick={() => setNavOpen(!navOpen)}style={{
+                            <Link to="/calendar" onClick={() => setNavOpen(!navOpen)}style={{
                             top: navOpen ? "0" : "120px",
                             transitionDelay: navOpen ? "0.9s" : "0s",
-                        }}>about</Link>
+                        }}>calendar</Link>
                             <div className="nav-item-wrapper"></div>
                         </li>
                         <li className="nav-item">

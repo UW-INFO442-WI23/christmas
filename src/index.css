@@ -11,6 +11,7 @@ h1, h2{
 }
 p{
   color: white;
+  font-size: 20px;
 }
 ul{
   white-space: pre-wrap;
