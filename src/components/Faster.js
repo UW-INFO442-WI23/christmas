@@ -40,7 +40,7 @@ function Faster() {
                         <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
                             <p className='intro'>Give some of these relaxation methods a try!</p>
                         </div>
-                        <ul>
+                        <ul className='m-3'>
                             <li>Breathing exercises — Slowly take deep breathes through your nose to expand your chest and diaphragm, hold it for a few seconds, and exhale through your mouth slowly.</li>
                             <li>Progressive muscle relaxation — Slowly tense single muscle groups for a few seconds and then relax them for 30 seconds, starting from your toes and working your way up to your head.</li>
                             <li>Visualization — For the creative minds, envision a calm and serene environment to provoke relaxing and positive emotions in your body and mind.</li>
@@ -48,7 +48,7 @@ function Faster() {
                         </ul>        
                         <div className="col-xs-12 col-md-12 mt-5">
                             <h2>Helpful Links</h2>
-                            <div className='mt-4'>
+                            <div className='m-4'>
                                 <a href="https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast">
                                     <p>Sleep Foundation's Sleep Hygiene Tips</p>
                                 </a>

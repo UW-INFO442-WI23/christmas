@@ -8,11 +8,9 @@ body{
 }
 h1, h2{
   color: white;
-  padding-top: 24px;
 }
 p{
   color: white;
-  font-size: 20px;
 }
 ul{
   white-space: pre-wrap;
