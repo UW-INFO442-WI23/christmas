@@ -14,7 +14,7 @@ function Healthier() {
                         <div className="col-xs-12 col-md-12 mt-5 d-flex justify-content-center">
                             <p className='intro'>People spend about a third of their life asleep, yet:</p>
                         </div>
-                        <ul>
+                        <ul className="m-2">
                             <li><b>72.7%</b> of U.S. young adults experience short sleep durations, getting less than 7 hours of sleep on average</li>
                             <li><b>39.2%</b> of university students reported durations of less than 6 hours of sleep</li>
                             <li>More than <b>half of college students</b> suffer from poor sleep quality</li>
@@ -28,7 +28,7 @@ function Healthier() {
                                 <li>Quality of Life — Sleep is important for overall quality of life, with poor sleep quality associated with a range of negative health outcomes, including increased risk for chronic diseases and mental health disorders. The journal Enfermería Clínica (2019) found that poor sleep quality was associated with increased stress levels in university students.</li>
                                 <li>Wellness — Research has shown that improving sleep quality can have a positive impact on physical and mental health. Wang & Bíró (2021) in the journal Explore found that implementing good sleep hygiene practices, such as establishing a regular sleep routine and avoiding electronics before bedtime, can improve sleep quality and overall wellbeing. This means more energy, promoting good mental health, and acknowleging a physiological need for your body!</li>
                             </ul>
-                            <table className="info">
+                            <table className="info m-2">
                                 <thead>
                                     <tr>
                                         <th>Consequences of poor sleep health</th>
