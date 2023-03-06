@@ -48,7 +48,7 @@ function Faster() {
                         </ul>        
                         <div className="col-xs-12 col-md-12 mt-5">
                             <h2>Helpful Links</h2>
-                            <div className='m-4'>
+                            <div className='mt-4'>
                                 <a href="https://www.sleepfoundation.org/sleep-hygiene/how-to-fall-asleep-fast">
                                     <p>Sleep Foundation's Sleep Hygiene Tips</p>
                                 </a>
@@ -62,10 +62,10 @@ function Faster() {
                                     <p>Insider's 25 Tips on Sleeping Better</p>
                                 </a>                                            
                             <h2>Works Cited</h2>
-                                <div className='mt-4'>
-                                    <p className='source-wrap'>Colten, H. R., Altevogt, B. M., & Research, I. of M. (US) C. on S. M. and. (2006). Sleep physiology. National Academies Press (US). https://www.ncbi.nlm.nih.gov/books/NBK19956/</p>
-                                    <p className='source-wrap'>Okamoto-Mizuno, K., & Mizuno, K. (2012). Effects of thermal environment on sleep and circadian rhythm. Journal of Physiological Anthropology, 31(1), 14. https://doi.org/10.1186/1880-6805-31-14</p>
-                                </div>
+                            <div className='mt-4'>
+                                <p className='source-wrap'>Colten, H. R., Altevogt, B. M., & Research, I. of M. (US) C. on S. M. and. (2006). Sleep physiology. National Academies Press (US). https://www.ncbi.nlm.nih.gov/books/NBK19956/</p>
+                                <p className='source-wrap'>Okamoto-Mizuno, K., & Mizuno, K. (2012). Effects of thermal environment on sleep and circadian rhythm. Journal of Physiological Anthropology, 31(1), 14. https://doi.org/10.1186/1880-6805-31-14</p>
+                            </div>
                             </div>
                         </div>
                     </section>
