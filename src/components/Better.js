@@ -16,7 +16,7 @@ function Better() {
                             <img className="individual-sleep-image mt-5" src={sleep_image4} alt='sleep2'></img>
                         </div>
                         <div className="col-xs-4 col-md-12 mt-8 d-flex justify-content-center video-container">
-                            <iframe src="https://www.youtube.com/embed/YCPDVVLUw-4" width='100%' height='100%' />
+                            <iframe className="video"src="https://www.youtube.com/embed/YCPDVVLUw-4" />
                         </div>
                         <div className="col-xs-4 col-md-12 mt-5">
                             <h2>Helpful Links</h2>

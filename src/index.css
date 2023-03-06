@@ -169,6 +169,10 @@ ul.nav-links li a{
     ul.nav-lins li a{
         font-size: 5em;
     }
+    .video{
+        height: 300px;
+        width: 400px;
+    }
 }
 .header-content{
     padding-top: 140px;
@@ -181,6 +185,10 @@ ul.nav-links li a{
     .page-container {
       background-image: url("./img/bg-xs.png");
     }
+    .video{
+        height: 500px;
+        width: 800px;
+    }
 }
   
 /* next size - tablet landscape and it covers desktop */
@@ -188,12 +196,20 @@ ul.nav-links li a{
     .miracle {
       background-image: url("./img/bg-md.png");
     }
+    .video{
+        height: 500px;
+        width: 800px;
+    }
 }
   
 /* next size - larger desktops */
 @media (min-width: 1280px) {
     .page-container {
       background-image: url("./img/bg-lg.png");
+    }
+    .video{
+        height: 500px;
+        width: 800px;
     }
 }
 
@@ -347,5 +363,7 @@ ul.nav-links li a{
 
 /* Better Page */
 .video-container {
-    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
