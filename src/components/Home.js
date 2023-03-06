@@ -13,7 +13,7 @@ function Home() {
                         <div className="content col-xs-6 col-md-5 m-4 mt-5">
                             <h1>welcome to sleep&see:</h1>
                             <p className='intro'><span>a site made to record </span><br></br><span>and visualize your sleep</span></p>
-                            <a href="/login">
+                            <a href="/calendar">
                                 <button className="link-button">let's start</button>
                             </a>
                         </div>
@@ -26,7 +26,7 @@ function Home() {
                         <div className="col-xs-4 col-md-4 mt-5">
                             <h1>your sleep is important</h1>
                             <p className='intro mt-5'>see notes and weekly averages of time slept across the month on when you hit the hay</p>
-                            <a href="/login">
+                            <a href="/calendar">
                                 <button className="link-button">try it out</button>
                             </a>
                         </div>
