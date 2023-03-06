@@ -20,6 +20,4 @@
     - Includes calculated averages of sleep duration, sleep time, and wake time
 <p>
 
-## User Personas
-![Persona](src/img/persona-1.png)
-![Persona](src/img/persona-2.png)
+![Illustration of person sleeping](https://github.com/UW-INFO442-WI23/christmas/blob/test/src/img/info-page2-image.png?raw=true)

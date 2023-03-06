@@ -1,4 +1,6 @@
 ## Testing Protocol
+![February 15th testing protocol table](https://github.com/UW-INFO442-WI23/christmas/blob/test/src/img/testing-protocol.png?raw=true)
+
 | Key Features 	| Expected Result 	| Testing Steps 	| Known Bugs 	| Workarounds 	|
 |---	|---	|---	|---	|---	|
 | Calendar View 	| Users can view a displayed calendar that tracks user inputs and diary entries.  	| - Users successfully change the months by using the arrow icons.<br>- Clicking on a date box, opening a side pop-up, then clicking on the clock icon to give drop-down menus of times.<br>- If everything successfully shows and nothing crashed, it successfully works. 	| - Page crash when calendar data is not successfully loaded 	| - Loaded a blank templete as a backup if data is not found 	|
