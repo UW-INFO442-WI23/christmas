@@ -63,8 +63,8 @@ function Faster() {
                                 </a>                                            
                             <h2>Works Cited</h2>
                                 <div className='mt-4'>
-                                    <p>Colten, H. R., Altevogt, B. M., & Research, I. of M. (US) C. on S. M. and. (2006). Sleep physiology. National Academies Press (US). https://www.ncbi.nlm.nih.gov/books/NBK19956/</p>
-                                    <p>Okamoto-Mizuno, K., & Mizuno, K. (2012). Effects of thermal environment on sleep and circadian rhythm. Journal of Physiological Anthropology, 31(1), 14. https://doi.org/10.1186/1880-6805-31-14</p>
+                                    <p className='source-wrap'>Colten, H. R., Altevogt, B. M., & Research, I. of M. (US) C. on S. M. and. (2006). Sleep physiology. National Academies Press (US). https://www.ncbi.nlm.nih.gov/books/NBK19956/</p>
+                                    <p className='source-wrap'>Okamoto-Mizuno, K., & Mizuno, K. (2012). Effects of thermal environment on sleep and circadian rhythm. Journal of Physiological Anthropology, 31(1), 14. https://doi.org/10.1186/1880-6805-31-14</p>
                                 </div>
                             </div>
                         </div>

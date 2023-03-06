@@ -339,3 +339,13 @@ ul.nav-links li a{
     width: 160px;
     height: 100px;
 }
+
+/* Faster Page */
+.source-wrap {
+    word-wrap: break-word;
+}
+
+/* Better Page */
+.video-container {
+    height: 500px;
+}
