@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.006eb287.css",
+    "main.js": "/static/js/main.22314353.js",
+    "static/media/sleep-image3.jpg": "/static/media/sleep-image3.81ad7c136aeca5bb5d6c.jpg",
+    "static/media/sleep-image1.jpg": "/static/media/sleep-image1.b277a424e87260dfdefc.jpg",
+    "static/media/sleep-image2.jpg": "/static/media/sleep-image2.6c3a5553a9e4ecf56c01.jpg",
+    "static/media/bg-lg.png": "/static/media/bg-lg.9870b319e1a3afed9bf1.png",
+    "static/media/InfographicTips.png": "/static/media/InfographicTips.2a1fca2b255d78cad6a0.png",
+    "static/media/bg-md.png": "/static/media/bg-md.71c7243d37786ad13086.png",
+    "static/media/rocket.png": "/static/media/rocket.f5171b6478970f501f96.png",
+    "static/media/info-page-image.png": "/static/media/info-page-image.868ba17d7c335bd883a5.png",
+    "static/media/info-page2-image.png": "/static/media/info-page2-image.3bce744d959f5051361b.png",
+    "static/media/InfographicCycle.png": "/static/media/InfographicCycle.5be9d1d6413c1b341f14.png",
+    "static/media/bg-xs.png": "/static/media/bg-xs.1ebb3e54921dc00ea39f.png",
+    "static/media/logo.png": "/static/media/logo.d6fc457d68179c069ba0.png",
+    "static/media/InfographicPhone.png": "/static/media/InfographicPhone.b939f21b61a8ad1c7578.png",
+    "static/media/graph.png": "/static/media/graph.899bf76a5ff605899e14.png",
+    "static/media/login-image.png": "/static/media/login-image.af0bab5fb701756f45f0.png",
+    "static/media/about_us.png": "/static/media/about_us.61b4c3d283af0eccdc24.png",
+    "static/media/calendar.png": "/static/media/calendar.726644c3439043a2557a.png",
+    "index.html": "/index.html",
+    "main.006eb287.css.map": "/static/css/main.006eb287.css.map",
+    "main.22314353.js.map": "/static/js/main.22314353.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.006eb287.css",
+    "static/js/main.22314353.js"
+  ]
+}
