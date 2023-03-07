@@ -23,7 +23,6 @@ function Calendar(props) {
         const pathway = '/AllData/' + props.user.uid;
         get(ref(db, pathway)).then((snapshot) => {
             if(!snapshot.exists()) {
-                console.log('Registering New User')
                 props.handleNewUser()
             }
         }).catch((error) => {
@@ -252,7 +251,18 @@ function daysInMonth(month, year) {
 function datesDayMonth(day, givenMonth) {
     // Creates each date of today's month into an object
     const dateData = [...Array(day)].map((e, i) => {
-        let dayOfWeekNumber = new Date(givenMonth +  ' ' + (i + 1) + ', ' + grabPresentDate().thisYearNumber).getDay();
+        // Adjust Month for date functio
+        let adjustDate = (i + 1) + "";
+        if (adjustDate < 10) {
+            adjustDate = "0" + adjustDate;
+        }
+
+        // Adjust Month for date function
+        let adjustMonth = givenMonth + "";
+        if (givenMonth < 10) {
+            adjustMonth = "0" + adjustMonth;
+        }
+        let dayOfWeekNumber = new Date(grabPresentDate().thisYearNumber +  "-" + adjustMonth + "-" + adjustDate + "T12:00:00").getDay();
         const dayInfo = {
             date: (i + 1),
             dayofWeek: dayOfWeekNumber,
@@ -355,7 +365,6 @@ export function DayCard(props) {
                 dateNotesData = props.userData.date[key];
             }
         }) 
-        console.log(Object.keys(dateNotesData).length === 0, dateNotesData);
 
         let noteList = [...storedNotes];
         if(addNote !== "") {
@@ -379,14 +388,12 @@ export function DayCard(props) {
             const pathway = '/AllData/' + props.user.uid + '/month/' + (dayInfo.month - 1) + '/date/' + dayInfo.date;
             get(ref(db, pathway)).then((snapshot) => {
                 if(snapshot.exists()) {
-                    console.log(snapshot.val());
                     update(ref(db, pathway), {
                         TimeSleep: storedSleep,
                         TimeWakeUp: storedWakeUp,
                         Notes: noteList,
                     })
                 } else {
-                    console.log('Adding new Data')
                     set(ref(db, pathway), newDateInfo);
                 }
             }).catch((error) => {

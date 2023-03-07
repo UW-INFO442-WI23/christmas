@@ -39,11 +39,9 @@ function App() {
 		const auth = getAuth();
 		const unregisterAuthListener = onAuthStateChanged(auth, (firebaseUser) => {
 			if(firebaseUser) {
-				console.log('Logging In')
 				setUser(firebaseUser);
 				setLoggedIn(true);
 			} else {
-				console.log("logging out");
 				setUser({});
 				setLoggedIn(false);
 			}
@@ -70,7 +68,6 @@ function App() {
 
 
 	function handleNewUser() {
-		console.log(user.uid)
 		if(loggedIn) {
 			const fireData = userData;
 			let existingUser = fireData.find(data => {
